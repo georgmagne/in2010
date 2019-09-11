@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.LinkedList;
+import java.util.Queue;
 
 class Node {
 	private int label;
@@ -24,6 +25,10 @@ class Node {
 
 	public void visit() {
 		visited = true;
+	}
+
+	public void unVisit() { // Lagt til av meg.
+		visited = false;
 	}
 
 	public void addNeighbor(Node n) {
@@ -155,47 +160,127 @@ class Graph {
 		}
 	}
 
+	public void resetVisit() { // Lagt til av meg.
+		for (Node n : nodes) {
+			n.unVisit();
+		}
+	}
+
         public int numberOfComponents() {
 	    	// Oppgave 1A
-				int naborekker = 0;
+					int naborekker = 0; //
 
-				for (Node n : nodes){
-					if (!n.isVisited()){
-						naborekker++;
-						this.DFS(n);
+					for (Node n : nodes){
+						if (!n.isVisited()){
+							naborekker++;
+							DFS(n);
+						}
 					}
+					resetVisit();
+	    		return naborekker;
 				}
 
-	    return naborekker;
-	}
-
         public Graph transformDirToUndir() {
-	    // Oppgave 1B
-	    // TODO
-	    return null; // returner en NY graf
-	}
+	    		// Oppgave 1B
+
+					// Prøvde først å lage BFS søk for å gå gjennom grafen og gjøre den uretta.
+					// Fikk ikke med alle nodene i søket, ettersom noen var "gjemt".
+					// Dette gjaldt først og fremst når jeg kun startet BFS i en node.
+
+					// Queue<Node> queue = new LinkedList<>();
+					//
+					// if (dirGraph.nodes.length == 0) { // Sjekker at dirGraph har noder.
+					// 	return null;
+					// }
+					//
+					// queue.add(dirGraph.nodes[0]); // Legger til første element
+					//
+					// while (queue.peek() != null) { // -- O(n)?
+					// 	Node aktuellNode = queue.poll(); // Tar ut en node.
+					// 	aktuellNode.visit();
+					//
+					// 	for (Node n : aktuellNode.getNeighbors()) { // Går gjennom naboer -- O(n^2)?
+					// 		n.addNeighbor(aktuellNode);
+					// 		if (!n.isVisited()) {
+					// 			queue.add(n);
+					// 		}
+					// 	}
+					// }
+
+					// Hvis jeg uansett på starte BFS i alle nodene, kan jeg like gjerne gjøre det slik.
+					// Det virket som kjøretidenvar lik. Med større grafer også.
+					// ca 10ms lengre kjøretid med BFS algoen, når grafen var liten.
+					// Ikke så rart da begge algoritmene er O(n^2)?
+
+					for (Node n : nodes) {
+						if(!n.isVisited()) {
+							n.visit();
+							for (Node aktuellNode : n.getNeighbors()) {
+								aktuellNode.addNeighbor(n);
+							}
+						}
+					}
+					resetVisit();
+	    		return this; // returner en NY graf
+			}
+
+
 
         public boolean isConnected(){
-	    // Oppgave 1C
-	    return false; // for at prekoden skal kompilere
-	}
+	    		// Oppgave 1C
+
+					return transformDirToUndir().numberOfComponents() == 1;
+				}
+
 
         public Graph biggestComponent() {
-	    // Oppgave 1D
-	    return null; // for at prekoden skal kompilere
-	}
+	    		// Oppgave 1D
 
-	public int[][] buildAdjacencyMatrix() {
-		// Oppgave 1E
-	    return null; // for at koden skal kompilere
-	}
+					if (numberOfComponents() == 1) { // Kun ett komponent.
+						return this;
+					}
+
+
+	    		return null; // for at prekoden skal kompilere
+				}
+
+				public int[][] buildAdjacencyMatrix() {
+					// Oppgave 1E
+	    		return null; // for at koden skal kompilere
+				}
 
 	public static void main(String[] args) {
 		Graph graph = buildExampleGraph();
+		graph.printNeighbors();
+		System.out.println("ExampleGraph "+graph.numberOfComponents()); // Test 1A
+		System.out.println(graph.isConnected()); // Test 1C
+		System.out.println("");
+		graph.isConnected();
+
 		graph = buildRandomSparseGraph(11, 201909202359L);
 		graph.printNeighbors();
+		System.out.println("RandomSparseGraph "+graph.numberOfComponents()); // Test 1A
+		System.out.println(graph.isConnected()); // Test 1C
 		System.out.println("");
+
 		graph = buildRandomDenseGraph(15, 201909202359L);
 		graph.printNeighbors();
+		System.out.println("RandomDenseGraph "+graph.numberOfComponents()); // Test 1A
+		System.out.println(graph.isConnected()); // Test 1C
+		System.out.println("");
+
+		// Test 1B
+		graph = buildRandomDirGraph(11, 201909202359L);
+		graph.printNeighbors();
+		System.out.println();
+		Graph unDir = graph.transformDirToUndir();
+		unDir.printNeighbors();
+
+		// Test 1C
+		graph = buildRandomDirGraph(11,201909202359L);
+		// unDir = graph.transformDirToUndir();
+		System.out.println(graph.isConnected());
+		// System.out.println(unDir.isConnected());
+
 	}
 }
