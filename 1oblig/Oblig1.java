@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.ArrayList;
 
 class Node {
 	private int label;
@@ -208,7 +209,7 @@ class Graph {
 					// }
 
 					// Hvis jeg uansett på starte BFS i alle nodene, kan jeg like gjerne gjøre det slik.
-					// Det virket som kjøretidenvar lik. Med større grafer også.
+					// Det virket som kjøretiden var lik. Med større grafer også.
 					// ca 10ms lengre kjøretid med BFS algoen, når grafen var liten.
 					// Ikke så rart da begge algoritmene er O(n^2)?
 
@@ -240,8 +241,61 @@ class Graph {
 						return this;
 					}
 
+					if (numberOfComponents() == 0) {
+						return null;
+					}
 
-	    		return null; // for at prekoden skal kompilere
+					Graph unDir = transformDirToUndir(); // For å være sikker.
+
+					ArrayList<Node> tmpNodes = new ArrayList<>();
+					ArrayList<ArrayList<Node>> components = new ArrayList<ArrayList<Node>>();
+
+					for (Node n : unDir.nodes) {
+						if(!n.isVisited()) {
+							n.visit();
+							tmpNodes.add(n); //"Første" noden i komponenten blir lagt til.
+
+							//Foretar BFS søk for hvert komponent.
+							Queue<Node> queue = new LinkedList<>();
+
+							queue.add(n);
+
+							while(queue.peek() != null) {
+								Node aktuellNode = queue.poll();
+								aktuellNode.visit();
+
+								for (Node naboNode : aktuellNode.getNeighbors()) {
+									if (!n.isVisited()) {
+										queue.add(naboNode);
+										tmpNodes.add(naboNode); // Legger til en tidligere usett node i komponent til ArrayList som skal "huskes".
+									}
+								}
+							}
+
+							components.add(tmpNodes);
+						}
+
+					}
+					int indexBiggestComponent = 0;
+					ArrayList<Node> currBiggestComp = new ArrayList<Node>();
+					ArrayList<Node> checkBiggerComp;
+
+					for (int i = 0; i < components.size(); i++) {
+						currBiggestComp = components.get(indexBiggestComponent);
+						checkBiggerComp = components.get(i);
+
+						if (checkBiggerComp.size() > currBiggestComp.size()) {
+							indexBiggestComponent = i;
+						}
+					}
+					Node[] nodesBiggestComponent = new Node[currBiggestComp.size()];
+
+					for (int i = 0; i < currBiggestComp.size() - 1; i++) {
+						nodesBiggestComponent[i] = currBiggestComp.get(i);
+					}
+
+				Graph biggestComponent = new Graph(nodesBiggestComponent);
+	    	return biggestComponent; // for at prekoden skal kompilere
 				}
 
 				public int[][] buildAdjacencyMatrix() {
