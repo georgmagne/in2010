@@ -184,10 +184,30 @@ class Graph {
         public Graph transformDirToUndir() {
 	    		// Oppgave 1B
 
+					// Node[] dirNode = this.nodes;
+					Node[] unDirNodes = new Node[nodes.length];
+
+					// Oppretter nye noder som er like som de i retta graf, uten naboer.
+					for(int i = 0; i < nodes.length; i++){
+						unDirNodes[i] = new Node(nodes[i].getLabel());
+					}
+
+					// Legger til nabo med lik label/index som naboene til retta graf.
+					// addNeighbor() gjør naboene uretta, og den sjekker om de allerede er naboer.
+					// Trenger derfor ikke å bry meg om dette når jeg skal sette nye naboer her.
+					for (int i = 0; i < nodes.length; i++){
+						for (Node naboNode : nodes[i].getNeighbors()){
+							unDirNodes[i].addNeighbor(unDirNodes[naboNode.getLabel()]);
+						}
+					}
+
+					Graph unDir = new Graph(unDirNodes);
+					return unDir;
+				}
+
 					// Prøvde først å lage BFS søk for å gå gjennom grafen og gjøre den uretta.
 					// Fikk ikke med alle nodene i søket, ettersom noen var "gjemt".
 					// Dette gjaldt først og fremst når jeg kun startet BFS i en node.
-
 					// Queue<Node> queue = new LinkedList<>();
 					//
 					// if (dirGraph.nodes.length == 0) { // Sjekker at dirGraph har noder.
@@ -213,23 +233,24 @@ class Graph {
 					// ca 10ms lengre kjøretid med BFS algoen, når grafen var liten.
 					// Ikke så rart da begge algoritmene er O(n^2)?
 
-					for (Node n : nodes) {
-						if(!n.isVisited()) {
-							n.visit();
-							for (Node aktuellNode : n.getNeighbors()) {
-								aktuellNode.addNeighbor(n);
-							}
-						}
-					}
-					resetVisit();
-	    		return this; // returner en NY graf
-			}
+			// 		for (Node n : nodes) {
+			// 			if(!n.isVisited()) {
+			// 				n.visit();
+			// 				for (Node aktuellNode : n.getNeighbors()) {
+			// 					aktuellNode.addNeighbor(n);
+			// 				}
+			// 			}
+			// 		}
+			// 		resetVisit();
+	    // 		return this; // returner en NY graf
+			// }
 
 
 
         public boolean isConnected(){
 	    		// Oppgave 1C
 
+					// Hvis grafen er sammenhengende har den kun ett komponent.
 					return transformDirToUndir().numberOfComponents() == 1;
 				}
 
@@ -241,14 +262,14 @@ class Graph {
 						return this;
 					}
 
-					if (numberOfComponents() == 0) {
+					if (numberOfComponents() == 0) { // Tom
 						return null;
 					}
 
 					Graph unDir = transformDirToUndir(); // For å være sikker.
 
 					ArrayList<Node> tmpNodes = new ArrayList<>();
-					ArrayList<ArrayList<Node>> components = new ArrayList<ArrayList<Node>>();
+					ArrayList<ArrayList<Node>> components = new ArrayList<ArrayList<Node>>(); //2d ArrayList på formen [component][node]
 
 					for (Node n : unDir.nodes) {
 						if(!n.isVisited()) {
@@ -257,50 +278,61 @@ class Graph {
 
 							//Foretar BFS søk for hvert komponent.
 							Queue<Node> queue = new LinkedList<>();
+							queue.add(n); // Legger til start noden til søket.
 
-							queue.add(n);
+							while(queue.peek() != null) { // Så lenge det fins ubehandlede noder.
+								Node aktuellNode = queue.poll(); // Henter ut fra køen.
+								aktuellNode.visit(); // Markerer noden.
 
-							while(queue.peek() != null) {
-								Node aktuellNode = queue.poll();
-								aktuellNode.visit();
-
-								for (Node naboNode : aktuellNode.getNeighbors()) {
-									if (!n.isVisited()) {
-										queue.add(naboNode);
+								for (Node naboNode : aktuellNode.getNeighbors()) { // Går gjennom naboNoder.
+									if (!n.isVisited()) { // Hvis node ikke er besøkt, er den ikke behandlet.
+										queue.add(naboNode); // Legger til ubehandlet nabo node.
 										tmpNodes.add(naboNode); // Legger til en tidligere usett node i komponent til ArrayList som skal "huskes".
 									}
 								}
 							}
 
-							components.add(tmpNodes);
+							components.add(tmpNodes); // Legger til liste med noder som utgjør et komponent
 						}
-
 					}
-					int indexBiggestComponent = 0;
-					ArrayList<Node> currBiggestComp = new ArrayList<Node>();
-					ArrayList<Node> checkBiggerComp;
+
+					int indexBiggestComponent = 0; // Hjelpe int, skal vise til største komponent i components, ArrayList.
+					ArrayList<Node> currBiggestComp = new ArrayList<Node>(); // Hjelpe ArrayList, skal inneholde den største del ArrayList fra components.
+					ArrayList<Node> checkBiggerComp; // Skal sjekkes mot currBiggestComp.
 
 					for (int i = 0; i < components.size(); i++) {
+						// Henter ut de to ArrayListene som skal sammenlignes.
 						currBiggestComp = components.get(indexBiggestComponent);
 						checkBiggerComp = components.get(i);
 
-						if (checkBiggerComp.size() > currBiggestComp.size()) {
+						if (checkBiggerComp.size() > currBiggestComp.size()) { // Hvis et større komponent blir funnet.
 							indexBiggestComponent = i;
 						}
 					}
-					Node[] nodesBiggestComponent = new Node[currBiggestComp.size()];
+					Node[] nodesBiggestComponent = new Node[currBiggestComp.size()]; // Må gjøre om fra ArrayList til Node[]
 
 					for (int i = 0; i < currBiggestComp.size() - 1; i++) {
 						nodesBiggestComponent[i] = currBiggestComp.get(i);
 					}
 
-				Graph biggestComponent = new Graph(nodesBiggestComponent);
-	    	return biggestComponent; // for at prekoden skal kompilere
+				Graph biggestComponent = new Graph(nodesBiggestComponent); // Oppretter en ny graf som kun inneholder den lengste komponenten.
+	    	return biggestComponent;
 				}
+
 
 				public int[][] buildAdjacencyMatrix() {
 					// Oppgave 1E
-	    		return null; // for at koden skal kompilere
+
+					int size = nodes.length;
+					int[][] adjacencyMatrix = new int[size][size];
+
+					for (int i = 0; i < size; i++) {
+						for (Node nabo : nodes[i].getNeighbors()) {
+							adjacencyMatrix[i][nabo.getLabel()] = 1;
+						}
+					}
+
+	    		return adjacencyMatrix;
 				}
 
 	public static void main(String[] args) {
@@ -324,6 +356,7 @@ class Graph {
 		System.out.println("");
 
 		// Test 1B
+		System.out.println("Test 1B");
 		graph = buildRandomDirGraph(11, 201909202359L);
 		graph.printNeighbors();
 		System.out.println();
@@ -336,5 +369,16 @@ class Graph {
 		System.out.println(graph.isConnected());
 		// System.out.println(unDir.isConnected());
 
+
+		// Test 1E
+		graph = buildExampleGraph();
+		int[][] nabomatise = graph.buildAdjacencyMatrix();
+		for (int i = 0; i < nabomatise.length; i++){
+			System.out.println("");
+			for (int j = 0; j < nabomatise.length; j++){
+				System.out.print(nabomatise[i][j]);
+			}
+		}
+		System.out.println();
 	}
 }
