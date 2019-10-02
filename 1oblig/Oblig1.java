@@ -205,47 +205,6 @@ class Graph {
 					return unDir;
 				}
 
-					// Prøvde først å lage BFS søk for å gå gjennom grafen og gjøre den uretta.
-					// Fikk ikke med alle nodene i søket, ettersom noen var "gjemt".
-					// Dette gjaldt først og fremst når jeg kun startet BFS i en node.
-					// Queue<Node> queue = new LinkedList<>();
-					//
-					// if (dirGraph.nodes.length == 0) { // Sjekker at dirGraph har noder.
-					// 	return null;
-					// }
-					//
-					// queue.add(dirGraph.nodes[0]); // Legger til første element
-					//
-					// while (queue.peek() != null) { // -- O(n)?
-					// 	Node aktuellNode = queue.poll(); // Tar ut en node.
-					// 	aktuellNode.visit();
-					//
-					// 	for (Node n : aktuellNode.getNeighbors()) { // Går gjennom naboer -- O(n^2)?
-					// 		n.addNeighbor(aktuellNode);
-					// 		if (!n.isVisited()) {
-					// 			queue.add(n);
-					// 		}
-					// 	}
-					// }
-
-					// Hvis jeg uansett på starte BFS i alle nodene, kan jeg like gjerne gjøre det slik.
-					// Det virket som kjøretiden var lik. Med større grafer også.
-					// ca 10ms lengre kjøretid med BFS algoen, når grafen var liten.
-					// Ikke så rart da begge algoritmene er O(n^2)?
-
-			// 		for (Node n : nodes) {
-			// 			if(!n.isVisited()) {
-			// 				n.visit();
-			// 				for (Node aktuellNode : n.getNeighbors()) {
-			// 					aktuellNode.addNeighbor(n);
-			// 				}
-			// 			}
-			// 		}
-			// 		resetVisit();
-	    // 		return this; // returner en NY graf
-			// }
-
-
 
         public boolean isConnected(){
 	    		// Oppgave 1C
@@ -258,64 +217,42 @@ class Graph {
         public Graph biggestComponent() {
 	    		// Oppgave 1D
 
-					if (numberOfComponents() == 1) { // Kun ett komponent.
+					if (numberOfComponents() == 1 || numberOfComponents() == 0) { // Kun ett komponent.
 						return this;
 					}
 
-					if (numberOfComponents() == 0) { // Tom
-						return null;
-					}
+					int biggest = 0;
+					Node[] biggestNodeComp = null; // Skal alltid bli endret.
 
-					Graph unDir = transformDirToUndir(); // For å være sikker.
+					for (Node node : this.nodes){
+						DFS(node); // Starter DFS på første node.
 
-					ArrayList<Node> tmpNodes = new ArrayList<>();
-					ArrayList<ArrayList<Node>> components = new ArrayList<ArrayList<Node>>(); //2d ArrayList på formen [component][node]
 
-					for (Node n : unDir.nodes) {
-						if(!n.isVisited()) {
-							n.visit();
-							tmpNodes.add(n); //"Første" noden i komponenten blir lagt til.
+						int nodesInComp = 0;
+						for(Node nodeCheck : this.nodes){ // Går gjennom alle noder en gang til, for å finne de som er besøkt og tilhører samme komponent
+							if (nodeCheck.isVisited()) {
+								nodesInComp++;
+							}
+						}
 
-							//Foretar BFS søk for hvert komponent.
-							Queue<Node> queue = new LinkedList<>();
-							queue.add(n); // Legger til start noden til søket.
+						if(nodesInComp > biggest) {
+							biggest = nodesInComp;
+							biggestNodeComp = new Node[nodesInComp];
 
-							while(queue.peek() != null) { // Så lenge det fins ubehandlede noder.
-								Node aktuellNode = queue.poll(); // Henter ut fra køen.
-								aktuellNode.visit(); // Markerer noden.
+							nodesInComp = 0;
 
-								for (Node naboNode : aktuellNode.getNeighbors()) { // Går gjennom naboNoder.
-									if (!n.isVisited()) { // Hvis node ikke er besøkt, er den ikke behandlet.
-										queue.add(naboNode); // Legger til ubehandlet nabo node.
-										tmpNodes.add(naboNode); // Legger til en tidligere usett node i komponent til ArrayList som skal "huskes".
-									}
+							for(int i = 0; i < this.nodes.length; i++){
+								if (this.nodes[i].isVisited()) {
+									biggestNodeComp[nodesInComp] = nodes[i];
+									nodesInComp++;
 								}
 							}
-
-							components.add(tmpNodes); // Legger til liste med noder som utgjør et komponent
 						}
+						this.resetVisit(); // Fjerner besøkt tag, slik at DFS kan kjøres på nytt.
 					}
 
-					int indexBiggestComponent = 0; // Hjelpe int, skal vise til største komponent i components, ArrayList.
-					ArrayList<Node> currBiggestComp = new ArrayList<Node>(); // Hjelpe ArrayList, skal inneholde den største del ArrayList fra components.
-					ArrayList<Node> checkBiggerComp; // Skal sjekkes mot currBiggestComp.
+				Graph biggestComponent = new Graph(biggestNodeComp); // Oppretter en ny graf som kun inneholder den lengste komponenten.
 
-					for (int i = 0; i < components.size(); i++) {
-						// Henter ut de to ArrayListene som skal sammenlignes.
-						currBiggestComp = components.get(indexBiggestComponent);
-						checkBiggerComp = components.get(i);
-
-						if (checkBiggerComp.size() > currBiggestComp.size()) { // Hvis et større komponent blir funnet.
-							indexBiggestComponent = i;
-						}
-					}
-					Node[] nodesBiggestComponent = new Node[currBiggestComp.size()]; // Må gjøre om fra ArrayList til Node[]
-
-					for (int i = 0; i < currBiggestComp.size() - 1; i++) {
-						nodesBiggestComponent[i] = currBiggestComp.get(i);
-					}
-
-				Graph biggestComponent = new Graph(nodesBiggestComponent); // Oppretter en ny graf som kun inneholder den lengste komponenten.
 	    	return biggestComponent;
 				}
 
@@ -368,6 +305,13 @@ class Graph {
 		// unDir = graph.transformDirToUndir();
 		System.out.println(graph.isConnected());
 		// System.out.println(unDir.isConnected());
+
+		//Test 1D
+		graph = buildRandomSparseGraph(11, 201909202359L);
+		Graph biggestComp = graph.biggestComponent();
+		graph.printNeighbors();
+		System.out.println(biggestComp);
+		biggestComp.printNeighbors();
 
 
 		// Test 1E
