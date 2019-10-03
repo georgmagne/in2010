@@ -7,4 +7,8 @@ public class TaskGraph {
     this.tasks = tasks;
     // this.size = tasks.length;
   }
+
+  public Task[] getTaskArr(){
+    return this.tasks;
+  }
 }

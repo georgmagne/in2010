@@ -9,15 +9,13 @@ public class Task {
   int earliestStart, latestStart;
   List<Task> outEdges;
   int cntPredecessors;
-  ArrayList<Integer> depEdges;
 
-  public Task(int id, String name, int time, int staff, ArrayList<Integer> depEdges) {
+  public Task(int id, String name, int time, int staff) {
     this.id = id;
     this.name = name;
     this.time = time;
     this.staff = staff;
-    this.depEdges = depEdges;
-    this.outEdges = new LinkedList<Task>();
+    // this.depEdges = depEdges;
     this.cntPredecessors = 0;
 
   }
@@ -30,12 +28,19 @@ public class Task {
     }
   }
 
-
   public void addPredecessor(){
     cntPredecessors++;
   }
 
   public void subPredecessor(){
     cntPredecessors--;
+  }
+
+  public String toString(){
+    String s = "";
+    s = s + "Id: " + String.valueOf(this.id) + "\n";
+    s = s + "Name: " + name + "\n";
+    s = s + "predecessor: " + cntPredecessors;
+    return s;
   }
 }

@@ -37,13 +37,12 @@ public class ReadFile {
     if (scanner.hasNextLine()){
       String line = scanner.nextLine(); // Gets first line of File - contains number of tasks in graph.
       tasks = new Task[Integer.parseInt(line)]; // Creates Task[] to fill and give to TaskGraph constructor.
-      System.out.println(line);
+      System.out.println("Number of tasks: " + line);
     } else { // no lines in file.
       System.out.println("Error accessing file.");
       return null;
     }
 
-    TaskGraph taskGraph = new TaskGraph(tasks);
 
     try {
       scanner.nextLine(); // skips blank line in file.
@@ -54,23 +53,25 @@ public class ReadFile {
 
     while (scanner.hasNextLine()){ // as long as file has more lines.
       String line = scanner.nextLine();
+      // System.out.println(line);
       String[] lineList = line.split("\\s+"); // Splits on whitespace.
       int id = Integer.parseInt(lineList[0]);
       String name = lineList[1];
+      System.out.println();
       int time = Integer.parseInt(lineList[2]);
       int staff = Integer.parseInt(lineList[3]);
       ArrayList<Integer> depEdges = new ArrayList<>();
 
-      for (int i = 4; i < lineList.length; i++){
-        if (Integer.parseInt(lineList[i]) == 0){
-          depEdges.add(Integer.parseInt(lineList[i]));
-        }
-      }
-
-
-       tasks[id] = new Task(id, name, time, staff, depEdges);
+      // for (int i = 4; i < lineList.length; i++){
+      //   if (Integer.parseInt(lineList[i]) == 0){
+      //     //depEdges.add(Integer.parseInt(lineList[i]));
+      //   }
+      // }
+      System.out.println(id);
+      tasks[id-1] = new Task(id, name, time, staff);
 
     }
+    TaskGraph taskGraph = new TaskGraph(tasks);
     return taskGraph;
   }
 
