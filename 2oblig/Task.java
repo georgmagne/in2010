@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
+// import java.lang.System;
 
 
 public class Task {
@@ -9,15 +10,17 @@ public class Task {
   int earliestStart, latestStart;
   List<Task> outEdges;
   int cntPredecessors;
+  ArrayList<Integer> depEdgesIndex;
 
-  public Task(int id, String name, int time, int staff) {
+
+  public Task(int id, String name, int time, int staff, ArrayList<Integer> depEdges) {
     this.id = id;
     this.name = name;
     this.time = time;
     this.staff = staff;
-    // this.depEdges = depEdges;
     this.cntPredecessors = 0;
-
+    this.outEdges = new ArrayList<>();
+    this.depEdgesIndex = depEdges;
   }
 
   public void addOutEdge(Task addTask){
@@ -38,9 +41,23 @@ public class Task {
 
   public String toString(){
     String s = "";
-    s = s + "Id: " + String.valueOf(this.id) + "\n";
-    s = s + "Name: " + name + "\n";
-    s = s + "predecessor: " + cntPredecessors;
+    s += "\nHash: " + System.identityHashCode(this);
+    s += "\nId: " + String.valueOf(this.id) + "\n";
+    s += "Name: " + name + "\n";
+    s += "Predecessors: " + cntPredecessors + "\n";
+
+    s += "depEdges: ";
+    for (int elem : depEdgesIndex){
+      s += String.valueOf(elem) + " ";
+    }
+
+    s += "\n";
+    s += "Out edges \n";
+    for (Task elem: outEdges){
+      s += "Out " + String.valueOf(this.id) + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
+    }
+
+    s += "\n";
     return s;
   }
 }

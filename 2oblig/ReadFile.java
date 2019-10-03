@@ -22,7 +22,6 @@ public class ReadFile {
     // this.scanner = new Scanner();
   }
 
-
   public TaskGraph buildGraph(String filePath){
     Task[] tasks;
 
@@ -53,24 +52,32 @@ public class ReadFile {
 
     while (scanner.hasNextLine()){ // as long as file has more lines.
       String line = scanner.nextLine();
-      // System.out.println(line);
       String[] lineList = line.split("\\s+"); // Splits on whitespace.
+
       int id = Integer.parseInt(lineList[0]);
       String name = lineList[1];
-      System.out.println();
       int time = Integer.parseInt(lineList[2]);
       int staff = Integer.parseInt(lineList[3]);
       ArrayList<Integer> depEdges = new ArrayList<>();
 
-      // for (int i = 4; i < lineList.length; i++){
-      //   if (Integer.parseInt(lineList[i]) == 0){
-      //     //depEdges.add(Integer.parseInt(lineList[i]));
-      //   }
-      // }
-      System.out.println(id);
-      tasks[id-1] = new Task(id, name, time, staff);
+      for (int i = 4; i < lineList.length; i++){
+        System.out.print(lineList[i] + " - ");
+        if (Integer.parseInt(lineList[i]) != 0){
+          depEdges.add(Integer.parseInt(lineList[i]));
+        }
+      }
+      
+      tasks[id-1] = new Task(id, name, time, staff, depEdges);
 
     }
+
+    for (Task elem: tasks) {
+      for (int i: elem.depEdgesIndex) {
+        tasks[i-1].addOutEdge(elem);
+        elem.addPredecessor();
+      }
+    }
+
     TaskGraph taskGraph = new TaskGraph(tasks);
     return taskGraph;
   }
