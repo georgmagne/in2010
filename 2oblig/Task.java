@@ -10,7 +10,10 @@ public class Task {
   int earliestStart, latestStart;
   List<Task> outEdges;
   int cntPredecessors;
+
   ArrayList<Integer> depEdgesIndex;
+  private boolean visited = false;
+
 
 
   public Task(int id, String name, int time, int staff, ArrayList<Integer> depEdges) {
@@ -21,6 +24,17 @@ public class Task {
     this.cntPredecessors = 0;
     this.outEdges = new ArrayList<>();
     this.depEdgesIndex = depEdges;
+  }
+  public void visit(){
+    visited = true;
+  }
+
+  public void unVisit(){
+    visited = false;
+  }
+
+  public boolean isVisited(){
+    return visited;
   }
 
   public void addOutEdge(Task addTask){
@@ -40,11 +54,13 @@ public class Task {
   }
 
   public String toString(){
-    String s = "";
-    s += "\nHash: " + System.identityHashCode(this);
-    s += "\nId: " + String.valueOf(this.id) + "\n";
+    String s = "\n";
+    s += "Hash: " + System.identityHashCode(this) + "\n";
+    s += "Id: " + String.valueOf(this.id) + "\n";
     s += "Name: " + name + "\n";
     s += "Predecessors: " + cntPredecessors + "\n";
+    s += "Time: " + time  + "\n";
+    s += "Staff: " + staff + "\n";
 
     s += "depEdges: ";
     for (int elem : depEdgesIndex){
