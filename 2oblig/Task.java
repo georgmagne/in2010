@@ -45,6 +45,14 @@ public class Task {
     }
   }
 
+  public int getTime(){
+    return this.time;
+  }
+
+  public int getCntPredecessor(){
+    return cntPredecessors;
+  }
+
   public void addPredecessor(){
     cntPredecessors++;
   }
@@ -55,22 +63,22 @@ public class Task {
 
   public String toString(){
     String s = "\n";
-    s += "Hash: " + System.identityHashCode(this) + "\n";
+    // s += "Hash: " + System.identityHashCode(this) + "\n";
     s += "Id: " + String.valueOf(this.id) + "\n";
     s += "Name: " + name + "\n";
-    s += "Predecessors: " + cntPredecessors + "\n";
-    s += "Time: " + time  + "\n";
-    s += "Staff: " + staff + "\n";
+    // s += "Predecessors: " + cntPredecessors + "\n";
+    // s += "Time: " + time  + "\n";
+    // s += "Staff: " + staff + "\n";
 
-    s += "depEdges: ";
-    for (int elem : depEdgesIndex){
-      s += String.valueOf(elem) + " ";
-    }
+    // s += "depEdges: ";
+    // for (int elem : depEdgesIndex){
+      // s += String.valueOf(elem) + " ";
+    // }
 
-    s += "\n";
+    // s += "\n";
     s += "Out edges \n";
     for (Task elem: outEdges){
-      s += "Out " + String.valueOf(this.id) + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
+      s += "Out " + String.valueOf(this.id) + "->" + String.valueOf(elem.id);// + " HASH:" + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
     }
 
     s += "\n";

@@ -61,12 +61,12 @@ public class ReadFile {
       ArrayList<Integer> depEdges = new ArrayList<>();
 
       for (int i = 4; i < lineList.length; i++){
-        System.out.print(lineList[i] + " - ");
+        // System.out.print(lineList[i] + " - ");
         if (Integer.parseInt(lineList[i]) != 0){
           depEdges.add(Integer.parseInt(lineList[i]));
         }
       }
-      
+
       tasks[id-1] = new Task(id, name, time, staff, depEdges);
 
     }
