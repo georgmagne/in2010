@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
+// import java.lang.System;
 
 
 public class Task {
@@ -9,17 +10,31 @@ public class Task {
   int earliestStart, latestStart;
   List<Task> outEdges;
   int cntPredecessors;
-  ArrayList<Integer> depEdges;
+
+  ArrayList<Integer> depEdgesIndex;
+  private boolean visited = false;
+
+
 
   public Task(int id, String name, int time, int staff, ArrayList<Integer> depEdges) {
     this.id = id;
     this.name = name;
     this.time = time;
     this.staff = staff;
-    this.depEdges = depEdges;
-    this.outEdges = new LinkedList<Task>();
     this.cntPredecessors = 0;
+    this.outEdges = new ArrayList<>();
+    this.depEdgesIndex = depEdges;
+  }
+  public void visit(){
+    visited = true;
+  }
 
+  public void unVisit(){
+    visited = false;
+  }
+
+  public boolean isVisited(){
+    return visited;
   }
 
   public void addOutEdge(Task addTask){
@@ -30,6 +45,13 @@ public class Task {
     }
   }
 
+  public int getTime(){
+    return this.time;
+  }
+
+  public int getCntPredecessor(){
+    return cntPredecessors;
+  }
 
   public void addPredecessor(){
     cntPredecessors++;
@@ -37,5 +59,29 @@ public class Task {
 
   public void subPredecessor(){
     cntPredecessors--;
+  }
+
+  public String toString(){
+    String s = "\n";
+    // s += "Hash: " + System.identityHashCode(this) + "\n";
+    s += "Id: " + String.valueOf(this.id) + "\n";
+    s += "Name: " + name + "\n";
+    // s += "Predecessors: " + cntPredecessors + "\n";
+    // s += "Time: " + time  + "\n";
+    // s += "Staff: " + staff + "\n";
+
+    // s += "depEdges: ";
+    // for (int elem : depEdgesIndex){
+      // s += String.valueOf(elem) + " ";
+    // }
+
+    // s += "\n";
+    s += "Out edges \n";
+    for (Task elem: outEdges){
+      s += "Out " + String.valueOf(this.id) + "->" + String.valueOf(elem.id);// + " HASH:" + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
+    }
+
+    s += "\n";
+    return s;
   }
 }
