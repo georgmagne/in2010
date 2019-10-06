@@ -4,7 +4,7 @@ public class Oblig2 {
     String fil = args[0];
 
     ReadFile fileReader = new ReadFile();
-    TaskGraph testGraf = fileReader.buildGraph(fil);
+    TaskGraph testGraf = fileReader.buildGraph("txt/"+fil); // input files are in txt directory.
 
     // for (Task elem : testGraf.getTaskArr()){
     //   System.out.println(elem);
@@ -15,19 +15,27 @@ public class Oblig2 {
     testGraf.findCycle(testGraf.getTaskArr()[0]);
 
 
-    Task[] sorted = null;//testGraf.topSort();
+    Task[] sorted = testGraf.topSort();
     if(sorted != null){
       String s = "";
       for (Task elem: sorted){
         s += elem.id + "->";
       }
+      s += "Complete";
+      System.out.println("Printing topSort.");
       System.out.println(s);
 
     } else {
       System.out.println(args[0] + " has a cycel. Project is not realizable.");
     }
 
-    System.out.println(testGraf.shortestTime());
+    Task[] test = testGraf.getTaskArr();
+    for(Task elem: test){
+
+      System.out.println(elem.getCntPredecessor());
+    }
+
+    // System.out.println(testGraf.shortestTime());
 
 
 

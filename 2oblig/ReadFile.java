@@ -74,7 +74,7 @@ public class ReadFile {
     for (Task elem: tasks) {
       for (int i: elem.depEdgesIndex) {
         tasks[i-1].addOutEdge(elem);
-        elem.addPredecessor();
+        // elem.addPredecessor();
       }
     }
 

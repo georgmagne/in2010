@@ -25,6 +25,19 @@ public class TaskGraph {
     }
   }
 
+  public void resetPred(){
+    for (Task elem: tasks) {
+      elem.resetPredecessor();
+    }
+  }
+
+  public void resetTasks() {
+    for (Task elem: tasks) {
+      elem.resetPredecessor();
+      elem.unVisit();
+    }
+  }
+
   public void DFS(Task t) {
     t.visit();
 
@@ -79,6 +92,8 @@ public class TaskGraph {
     Task[] topSorted = new Task[tasks.length];
 
     for (Task elem: tasks){ // Finds all Tasks with 0 Predecessors.
+      System.out.print("yeeting");
+      System.out.println(elem);
       if(elem.getCntPredecessor() == 0){
         s.push(elem);
       }
@@ -90,37 +105,37 @@ public class TaskGraph {
       topSorted[i] = current;
       i++;
 
+      System.out.println(i);
+      System.out.println("testingtesting");
+      for(Task elem: topSorted){
+        System.out.println(elem);
+      }
+
       for (Task successor: current.outEdges){
         successor.subPredecessor();
+        System.out.println("successor");
+        System.out.println(successor);
         if(successor.getCntPredecessor() == 0){
           s.push(successor);
         }
       }
     }
-    if(i == tasks.length){
-      return topSorted;
-    } else {
-      System.out.println("Graph has cycel.");
-      return null;
+
+    try {
+
+      System.out.println(i);
+      if(i == tasks.length){
+        return topSorted;
+
+      } else {
+        System.out.println("Graph has cycel.");
+        return null;
+      }
+    }
+    finally {
+      resetTasks();
     }
   }
-
-  // public int shortestTime() {
-  //   Task[] topSorted = this.topSort();
-  //   int estimateTime = Integer.MAX_VALUE;
-  //   int time = 0;
-  //
-  //   for (int i = 0; i < tasks.length; i++){
-  //     for (Task task: tasks[i].outEdges){
-  //       System.out.println("yeet");
-  //       if (estimateTime > time + task.getTime()){
-  //         estimateTime = time + task.getTime();
-  //       }
-  //     }
-  //   }
-  //
-  //   return estimateTime;
-  // }
 
   public int shortestTime() {
     // Shortest time is the time it takes for the longest path to complete.
@@ -137,10 +152,8 @@ public class TaskGraph {
           System.out.println(start);
           dist[start.id-1] = 0;
         }
-        // System.out.println("Graph has cycel");
-        // return -1;
       }
-      System.out.println("ahshdh");
+
     for (int i: dist){
       System.out.println(i);
     }

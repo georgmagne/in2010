@@ -21,9 +21,9 @@ public class Task {
     this.name = name;
     this.time = time;
     this.staff = staff;
-    this.cntPredecessors = 0;
     this.outEdges = new ArrayList<>();
     this.depEdgesIndex = depEdges;
+    this.cntPredecessors = depEdges.size();
   }
   public void visit(){
     visited = true;
@@ -61,12 +61,16 @@ public class Task {
     cntPredecessors--;
   }
 
+  public void resetPredecessor(){
+    cntPredecessors = depEdgesIndex.size();
+  }
+
   public String toString(){
     String s = "\n";
     // s += "Hash: " + System.identityHashCode(this) + "\n";
     s += "Id: " + String.valueOf(this.id) + "\n";
     s += "Name: " + name + "\n";
-    // s += "Predecessors: " + cntPredecessors + "\n";
+    s += "Predecessors: " + cntPredecessors + "\n";
     // s += "Time: " + time  + "\n";
     // s += "Staff: " + staff + "\n";
 
