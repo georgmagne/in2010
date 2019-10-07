@@ -71,7 +71,7 @@ public class Task {
     s += "Id: " + String.valueOf(this.id) + "\n";
     s += "Name: " + name + "\n";
     s += "Predecessors: " + cntPredecessors + "\n";
-    // s += "Time: " + time  + "\n";
+    s += "Time: " + time  + "\n";
     // s += "Staff: " + staff + "\n";
 
     // s += "depEdges: ";

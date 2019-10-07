@@ -9,10 +9,18 @@ public class Oblig2 {
     // for (Task elem : testGraf.getTaskArr()){
     //   System.out.println(elem);
     // }
-    System.out.println(testGraf.getTaskArr()[0]);
-    System.out.println(testGraf.getTaskArr()[7]);
-    System.out.println("Starter i " + testGraf.getTaskArr()[0]);
-    testGraf.findCycle(testGraf.getTaskArr()[0]);
+    // System.out.println(testGraf.getTaskArr()[0]);
+    // System.out.println(testGraf.getTaskArr()[7]);
+    // System.out.println("Starter i " + testGraf.getTaskArr()[0]);
+    // testGraf.findCycle(testGraf.getTaskArr()[0]);
+
+    // System.out.println(testGraf.hasCycle());
+    System.out.println();
+    if(testGraf.hasCycle()){
+      System.out.println(testGraf.cycle);
+    }
+
+
 
 
     Task[] sorted = testGraf.topSort();
@@ -28,14 +36,17 @@ public class Oblig2 {
     } else {
       System.out.println(args[0] + " has a cycel. Project is not realizable.");
     }
+    System.out.println(testGraf.shortestTime);
 
-    Task[] test = testGraf.getTaskArr();
-    for(Task elem: test){
+    // Task[] test = testGraf.getTaskArr();
+    // for(Task elem: test){
+    //
+    //   System.out.println(elem.getCntPredecessor());
+    // }
+    //
+    // System.out.println("Shortest Time: "+testGraf.shortestTime());
 
-      System.out.println(elem.getCntPredecessor());
-    }
 
-    // System.out.println(testGraf.shortestTime());
 
 
 
