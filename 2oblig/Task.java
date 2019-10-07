@@ -12,6 +12,7 @@ public class Task {
   List<Task> inEdges;
   int cntPredecessors;
   int cntSuccessors;
+  boolean critical;
 
   ArrayList<Integer> depEdgesIndex;
   private boolean visited = false;
@@ -80,13 +81,12 @@ public class Task {
     return cntPredecessors;
   }
 
-  public void addPredecessor(){
-    cntPredecessors++;
-  }
-
   public void subPredecessor(){
     cntPredecessors--;
   }
+  // public void addPredecessor(){
+  //   cntPredecessors++;
+  // }
 
   public void subSuccessor(){
     cntSuccessors--;
@@ -95,6 +95,7 @@ public class Task {
   public int getCntSuccsessor(){
     return this.cntSuccessors;
   }
+
   public void resetSuccessor(){
     cntSuccessors = inEdges.size();
   }
@@ -103,16 +104,19 @@ public class Task {
     cntPredecessors = depEdgesIndex.size();
   }
 
+  public void setCritical(boolean b){
+    this.critical = b;
+  }
+
   public String toString(){
     String s = "";
-    // s += "Hash: " + System.identityHashCode(this) + "\n";
     s += "Id: " + String.valueOf(this.id) + "\n";
     s += "Name: " + name + "\n";
     s += "Predecessors: " + cntPredecessors + "\n";
     s += "Time: " + time  + "\n";
     // s += "Staff: " + staff + "\n";
-    s += "ES: " + this.earliestStart + "\n";
-    s += "LS: " + this.latestStart + "\n";
+    s += "earliest Start: " + this.earliestStart;
+    // s += "LS: " + this.latestStart + "\n";
 
     // s += "depEdges: ";
     // for (int elem : depEdgesIndex){
@@ -120,15 +124,17 @@ public class Task {
     // }
 
     // s += "\n";
-    s += "Out edges \n";
-    for (Task elem: outEdges){
-      s += "Out " + String.valueOf(this.id) + "->" + String.valueOf(elem.id);// + " HASH:" + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
-    }
+    // s += "Out edges \n";
+    // for (Task elem: outEdges){
+    //   s += "Out " + String.valueOf(this.id) + "->" + String.valueOf(elem.id);// + " HASH:" + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
+    // }
 
-    s += "\n IN EDGE: \n";
-    for (Task elem: inEdges){
-      s += elem.id + "..";
-    }
+    // s += "\n IN EDGE: \n";
+    // for (Task elem: inEdges){
+    //   s += elem.id + "..";
+    // }
+    s += "\nSLACK :" + (latestStart-earliestStart);
+    s += "\nCRITICAL: " + critical;
     s += "\n--------------";
     s += "\n";
     return s;

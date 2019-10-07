@@ -36,7 +36,8 @@ public class Oblig2 {
     // } else {
     //   System.out.println(args[0] + " has a cycel. Project is not realizable.");
     // }
-    System.out.println("SHORTES TIME: "+testGraf.shortestTime);
+
+    System.out.println("SHORTEST TIME: "+testGraf.shortestTime);
 
     // for (Task elem: testGraf.getTaskArr()){
     //   System.out.println(elem);
@@ -51,11 +52,45 @@ public class Oblig2 {
     // System.out.println("Shortest Time: "+testGraf.shortestTime());
 
 
-    System.out.println("***************************************************************************************************\n******************************************************************************************");
+    System.out.println("*********************************************************************\n*********************************************************************");
     for(Task elem: testGraf.getTaskArr()){
       System.out.println(elem);
     }
 
+    //StringBuilder to format good looking strings,
+    StringBuilder sb = new StringBuilder();
+    String spaces = "       ";
+    for (int i = 0; i < testGraf.getTaskArr().length; i++) {
+      String timeString = "";
+      timeString += "\nTime " + i;
+      timeString += "\n------------------------";
 
+      boolean helper = false;
+      for (Task task: testGraf.getTaskArr()) {
+        helper = false;
+        if (task.getEarliestStart() == i){
+          timeString += "\n"+spaces + "Starting task " + task.id + "\n";
+          sb.append(timeString);
+          helper = true;
+        }
+
+        int finishTime = task.getEarliestStart() + task.getTime();
+        if(finishTime == i) {
+          timeString += "\n" + spaces + "Finishing task " + task.id + "\n";
+          sb.append(timeString);
+          helper = true;
+
+        }
+
+        }
+
+        if(helper){
+          sb.append(timeString);
+
+      }
+
+    }
+    String out = sb.toString();
+    System.out.println(out);
   }
 }

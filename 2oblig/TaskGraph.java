@@ -15,52 +15,21 @@ public class TaskGraph {
 
   public TaskGraph (Task[] tasks) {
     this.tasks = tasks;
-    // this.topSort = topSort();
   }
 
   public Task[] getTaskArr() {
     return this.tasks;
   }
-  //
-  // public void resetVisit() {
-  //   for (Task elem: tasks){
-  //     elem.unVisit();
-  //   }
-  // }
-  //
-  // public void resetPred(){
-  //   for (Task elem: tasks) {
-  //     elem.resetPredecessor();
-  //   }
-  // }
+
 
   public void resetTasks() {
     for (Task elem: tasks) {
       elem.resetPredecessor();
+      elem.resetSuccessor();
       elem.unVisit();
     }
   }
 
-  // public void DFS(Task t) {
-  //   t.visit();//   String s = "";
-  //   //   for (Task elem: sorted){
-  //   //     s += elem.id + "->";
-  //   //   }
-  //   //   s += "Complete";
-  //   //   System.out.println("Printing topSort.");
-  //   //   System.out.println(s);
-  //   //
-  //   // } else {
-  //   //   System.out.println(args[0] + " has a cycel. Project is not realizable.");
-  //   // }
-  //
-  //
-  //   for(Task elem: t.outEdges){
-  //     if(!elem.isVisited()){
-  //       DFS(elem);
-  //     }
-  //   }
-  // }
 
   public boolean hasCycle() {
     Set<Task> whiteSet = new HashSet<>();
@@ -127,18 +96,8 @@ public class TaskGraph {
       topSorted[i] = current;
       i++;
 
-      // for(Task elem: topSorted){
-      //   System.out.println(elem);
-      // }
-      System.out.println("Behanlder ny task: ");
-      System.out.println(current);
-
       for (Task successor: current.outEdges){
-        System.out.println(successor);
         successor.subPredecessor();
-
-        System.out.println("ID: " + current.id + " TIME: " + current.time);
-        System.out.println("ID: " + successor.id + " TIME: " + successor.time);
 
         int oldES = successor.earliestStart;
         int potentialNewES = current.earliestStart + current.time;
@@ -180,7 +139,6 @@ public class TaskGraph {
         if(oldLS > potentialNewLS){
           predecessor.setLatestStart(potentialNewLS);
         }
-
         predecessor.subSuccessor();
 
         if(predecessor.getCntSuccsessor() == 0){
@@ -190,8 +148,6 @@ public class TaskGraph {
     }
 
     try {
-
-      System.out.println(i);
       if(i == tasks.length){
         return topSorted;
 
@@ -201,7 +157,18 @@ public class TaskGraph {
       }
     }
     finally {
+      setCritical();
       resetTasks();
+    }
+  }
+
+  public void setCritical(){
+    for(Task elem: tasks){
+      if(elem.getLatestStart() == elem.getEarliestStart()){
+        elem.setCritical(true);
+      } else {
+        elem.setCritical(false);
+      }
     }
   }
 
