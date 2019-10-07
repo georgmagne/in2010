@@ -41,26 +41,26 @@ public class TaskGraph {
     }
   }
 
-  public void DFS(Task t) {
-    t.visit();//   String s = "";
-    //   for (Task elem: sorted){
-    //     s += elem.id + "->";
-    //   }
-    //   s += "Complete";
-    //   System.out.println("Printing topSort.");
-    //   System.out.println(s);
-    //
-    // } else {
-    //   System.out.println(args[0] + " has a cycel. Project is not realizable.");
-    // }
-
-
-    for(Task elem: t.outEdges){
-      if(!elem.isVisited()){
-        DFS(elem);
-      }
-    }
-  }
+  // public void DFS(Task t) {
+  //   t.visit();//   String s = "";
+  //   //   for (Task elem: sorted){
+  //   //     s += elem.id + "->";
+  //   //   }
+  //   //   s += "Complete";
+  //   //   System.out.println("Printing topSort.");
+  //   //   System.out.println(s);
+  //   //
+  //   // } else {
+  //   //   System.out.println(args[0] + " has a cycel. Project is not realizable.");
+  //   // }
+  //
+  //
+  //   for(Task elem: t.outEdges){
+  //     if(!elem.isVisited()){
+  //       DFS(elem);
+  //     }
+  //   }
+  // }
 
   public boolean hasCycle() {
     Set<Task> whiteSet = new HashSet<>();
@@ -127,23 +127,64 @@ public class TaskGraph {
       topSorted[i] = current;
       i++;
 
-      for(Task elem: topSorted){
-        System.out.println(elem);
-      }
+      // for(Task elem: topSorted){
+      //   System.out.println(elem);
+      // }
+      System.out.println("Behanlder ny task: ");
+      System.out.println(current);
 
       for (Task successor: current.outEdges){
+        System.out.println(successor);
         successor.subPredecessor();
 
-        if(successor.earliestStart < (current.earliestStart + current.time)){
-          successor.time = current.earliestStart + current.time;
+        System.out.println("ID: " + current.id + " TIME: " + current.time);
+        System.out.println("ID: " + successor.id + " TIME: " + successor.time);
+
+        int oldES = successor.earliestStart;
+        int potentialNewES = current.earliestStart + current.time;
+
+        if(oldES < potentialNewES){
+          successor.setEarliestStart(potentialNewES);
         }
 
-        if( (successor.earliestStart + successor.time) > this.shortestTime) {
-          this.shortestTime = successor.earliestStart + successor.time;
+        if( successor.getEarliestStart() + successor.getTime() > this.shortestTime) {
+          this.shortestTime = successor.getEarliestStart() + successor.getTime();
         }
 
         if(successor.getCntPredecessor() == 0){
           s.push(successor);
+        }
+      }
+    }
+
+    s = new Stack<>();
+
+    for (Task elem: tasks){
+      elem.setLatestStart(Integer.MAX_VALUE);
+      elem.resetPredecessor();
+
+      if(elem.getCntSuccsessor() == 0){
+        elem.latestStart = this.shortestTime - elem.time;
+        s.push(elem);
+      }
+    }
+
+    while(!s.isEmpty()){
+      Task current = s.pop();
+
+      for (Task predecessor: current.inEdges){
+
+        int oldLS = predecessor.getLatestStart();
+        int potentialNewLS = current.getLatestStart() - predecessor.getTime();
+
+        if(oldLS > potentialNewLS){
+          predecessor.setLatestStart(potentialNewLS);
+        }
+
+        predecessor.subSuccessor();
+
+        if(predecessor.getCntSuccsessor() == 0){
+          s.push(predecessor);
         }
       }
     }
@@ -155,7 +196,7 @@ public class TaskGraph {
         return topSorted;
 
       } else {
-        System.out.println("Graph has cycel.");
+        System.out.println("Graph has cycel. Something went wrong.");
         return null;
       }
     }

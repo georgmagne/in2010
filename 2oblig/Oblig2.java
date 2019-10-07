@@ -15,28 +15,32 @@ public class Oblig2 {
     // testGraf.findCycle(testGraf.getTaskArr()[0]);
 
     // System.out.println(testGraf.hasCycle());
-    System.out.println();
-    if(testGraf.hasCycle()){
-      System.out.println(testGraf.cycle);
-    }
+    // System.out.println();
+    // if(testGraf.hasCycle()){
+    //   System.out.println(testGraf.cycle);
+    // }
 
 
 
 
     Task[] sorted = testGraf.topSort();
-    if(sorted != null){
-      String s = "";
-      for (Task elem: sorted){
-        s += elem.id + "->";
-      }
-      s += "Complete";
-      System.out.println("Printing topSort.");
-      System.out.println(s);
+    // if(sorted != null){
+    //   String s = "";
+    //   for (Task elem: sorted){
+    //     s += elem.id + "->";
+    //   }
+    //   s += "Complete";
+    //   System.out.println("Printing topSort.");
+    //   System.out.println(s);
+    //
+    // } else {
+    //   System.out.println(args[0] + " has a cycel. Project is not realizable.");
+    // }
+    System.out.println("SHORTES TIME: "+testGraf.shortestTime);
 
-    } else {
-      System.out.println(args[0] + " has a cycel. Project is not realizable.");
-    }
-    System.out.println(testGraf.shortestTime);
+    // for (Task elem: testGraf.getTaskArr()){
+    //   System.out.println(elem);
+    // }
 
     // Task[] test = testGraf.getTaskArr();
     // for(Task elem: test){
@@ -47,7 +51,10 @@ public class Oblig2 {
     // System.out.println("Shortest Time: "+testGraf.shortestTime());
 
 
-
+    System.out.println("***************************************************************************************************\n******************************************************************************************");
+    for(Task elem: testGraf.getTaskArr()){
+      System.out.println(elem);
+    }
 
 
   }

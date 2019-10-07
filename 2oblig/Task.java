@@ -9,7 +9,9 @@ public class Task {
   String name;
   int earliestStart, latestStart;
   List<Task> outEdges;
+  List<Task> inEdges;
   int cntPredecessors;
+  int cntSuccessors;
 
   ArrayList<Integer> depEdgesIndex;
   private boolean visited = false;
@@ -22,9 +24,12 @@ public class Task {
     this.time = time;
     this.staff = staff;
     this.outEdges = new ArrayList<>();
+    this.inEdges = new ArrayList<>();
     this.depEdgesIndex = depEdges;
     this.cntPredecessors = depEdges.size();
+    this.cntSuccessors = inEdges.size();
   }
+
   public void visit(){
     visited = true;
   }
@@ -45,8 +50,30 @@ public class Task {
     }
   }
 
+  public void addInEdge(Task inEdge){
+    if(!inEdges.contains(inEdge)){
+      inEdges.add(inEdge);
+    }
+  }
+
   public int getTime(){
     return this.time;
+  }
+
+  public int getEarliestStart(){
+    return this.earliestStart;
+  }
+
+  public int getLatestStart(){
+    return this.latestStart;
+  }
+
+  public void setEarliestStart(int i){
+    this.earliestStart = i;
+  }
+
+  public void setLatestStart(int i){
+    this.latestStart = i;
   }
 
   public int getCntPredecessor(){
@@ -61,18 +88,31 @@ public class Task {
     cntPredecessors--;
   }
 
+  public void subSuccessor(){
+    cntSuccessors--;
+  }
+
+  public int getCntSuccsessor(){
+    return this.cntSuccessors;
+  }
+  public void resetSuccessor(){
+    cntSuccessors = inEdges.size();
+  }
+
   public void resetPredecessor(){
     cntPredecessors = depEdgesIndex.size();
   }
 
   public String toString(){
-    String s = "\n";
+    String s = "";
     // s += "Hash: " + System.identityHashCode(this) + "\n";
     s += "Id: " + String.valueOf(this.id) + "\n";
     s += "Name: " + name + "\n";
     s += "Predecessors: " + cntPredecessors + "\n";
     s += "Time: " + time  + "\n";
     // s += "Staff: " + staff + "\n";
+    s += "ES: " + this.earliestStart + "\n";
+    s += "LS: " + this.latestStart + "\n";
 
     // s += "depEdges: ";
     // for (int elem : depEdgesIndex){
@@ -85,6 +125,11 @@ public class Task {
       s += "Out " + String.valueOf(this.id) + "->" + String.valueOf(elem.id);// + " HASH:" + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
     }
 
+    s += "\n IN EDGE: \n";
+    for (Task elem: inEdges){
+      s += elem.id + "..";
+    }
+    s += "\n--------------";
     s += "\n";
     return s;
   }

@@ -78,6 +78,12 @@ public class ReadFile {
       }
     }
 
+    for (Task elem: tasks){
+      for (Task j: elem.outEdges){
+        j.addInEdge(elem);
+      }
+    }
+
     TaskGraph taskGraph = new TaskGraph(tasks);
     return taskGraph;
   }
