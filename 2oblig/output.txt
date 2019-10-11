@@ -1,0 +1,3618 @@
+Number of tasks: 8
+
+
+PRINTING FOR PROJECT: buildhouse1.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Build-walls
+TIME: 4
+STAFF: 2
+EARLIEST START: 4
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: Build-roofs
+TIME: 6
+STAFF: 4
+EARLIEST START: 8
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | TASK ID: 7 | 
+--------------
+
+ID: 3
+NAME: Put-on-wallpapers
+TIME: 1
+STAFF: 2
+EARLIEST START: 14
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 4
+NAME: Put-on-tiles
+TIME: 1
+STAFF: 3
+EARLIEST START: 14
+SLACK :7
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Build-foundation
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | TASK ID: 6 | 
+--------------
+
+ID: 6
+NAME: Make-floor
+TIME: 2
+STAFF: 2
+EARLIEST START: 4
+SLACK :8
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 7
+NAME: Put-carpet-floor
+TIME: 4
+STAFF: 2
+EARLIEST START: 14
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: Move-in
+TIME: 4
+STAFF: 4
+EARLIEST START: 18
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 5
+
+       Current staff: 2
+
+------------------------
+Time 4
+------------------------
+       Starting task 1
+
+       Finishing task 5
+
+       Starting task 6
+
+       Current staff: 4
+
+------------------------
+Time 6
+------------------------
+       Finishing task 6
+
+       Current staff: 2
+
+------------------------
+Time 8
+------------------------
+       Finishing task 1
+
+       Starting task 2
+
+       Current staff: 4
+
+------------------------
+Time 14
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Starting task 7
+
+       Current staff: 7
+
+------------------------
+Time 15
+------------------------
+       Finishing task 3
+
+       Finishing task 4
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Starting task 8
+
+       Current staff: 4
+
+------------------------
+Time 22
+------------------------
+       Finishing task 8
+
+       Current staff: 0
+Number of tasks: 8
+
+
+PRINTING FOR PROJECT: buildhouse2.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Build-walls
+TIME: 4
+STAFF: 2
+EARLIEST START: 4
+SLACK :-14
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: Build-roofs
+TIME: 6
+STAFF: 4
+EARLIEST START: 0
+SLACK :-6
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | TASK ID: 7 | 
+--------------
+
+ID: 3
+NAME: Put-on-wallpapers
+TIME: 1
+STAFF: 2
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 4
+NAME: Put-on-tiles
+TIME: 1
+STAFF: 3
+EARLIEST START: 0
+SLACK :7
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Build-foundation
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :-14
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | 
+--------------
+
+ID: 6
+NAME: Make-floor
+TIME: 2
+STAFF: 2
+EARLIEST START: 0
+SLACK :-12
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | 
+--------------
+
+ID: 7
+NAME: Put-carpet-floor
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: Move-in
+TIME: 4
+STAFF: 4
+EARLIEST START: 0
+SLACK :4
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+This project is unrealizable because of a cycle @ 2->6->1->7->
+Number of tasks: 8
+
+
+PRINTING FOR PROJECT: examplefigure.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: 1
+TIME: 3
+STAFF: 4
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: 2
+TIME: 5
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | 
+--------------
+
+ID: 3
+NAME: 3
+TIME: 1
+STAFF: 2
+EARLIEST START: 5
+SLACK :1
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 6 | 
+--------------
+
+ID: 4
+NAME: 4
+TIME: 2
+STAFF: 4
+EARLIEST START: 5
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | 
+--------------
+
+ID: 5
+NAME: 5
+TIME: 4
+STAFF: 3
+EARLIEST START: 6
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 6
+NAME: 6
+TIME: 8
+STAFF: 4
+EARLIEST START: 7
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | TASK ID: 8 | 
+--------------
+
+ID: 7
+NAME: 7
+TIME: 3
+STAFF: 2
+EARLIEST START: 15
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 8
+NAME: 8
+TIME: 1
+STAFF: 3
+EARLIEST START: 15
+SLACK :2
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 1
+
+       Starting task 2
+
+       Current staff: 6
+
+------------------------
+Time 3
+------------------------
+       Finishing task 1
+
+       Current staff: 2
+
+------------------------
+Time 5
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Current staff: 6
+
+------------------------
+Time 6
+------------------------
+       Finishing task 3
+
+       Starting task 5
+
+       Current staff: 7
+
+------------------------
+Time 7
+------------------------
+       Finishing task 4
+
+       Starting task 6
+
+       Current staff: 7
+
+------------------------
+Time 10
+------------------------
+       Finishing task 5
+
+       Current staff: 4
+
+------------------------
+Time 15
+------------------------
+       Finishing task 6
+
+       Starting task 7
+
+       Starting task 8
+
+       Current staff: 5
+
+------------------------
+Time 16
+------------------------
+       Finishing task 8
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Current staff: 0
+Number of tasks: 14
+
+
+PRINTING FOR PROJECT: buildgarage.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: get-paperwork
+TIME: 14280
+STAFF: 1
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: call-contractor
+TIME: 4
+STAFF: 1
+EARLIEST START: 14280
+SLACK :215898
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 4 | 
+--------------
+
+ID: 3
+NAME: clean-yard
+TIME: 215902
+STAFF: 3
+EARLIEST START: 14280
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 4 | 
+--------------
+
+ID: 4
+NAME: build-foundation
+TIME: 32134
+STAFF: 2
+EARLIEST START: 230182
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 6 | TASK ID: 7 | 
+--------------
+
+ID: 5
+NAME: build-wall-support
+TIME: 41232
+STAFF: 4
+EARLIEST START: 262316
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | TASK ID: 9 | TASK ID: 11 | 
+--------------
+
+ID: 6
+NAME: lay-electrical-cables
+TIME: 142
+STAFF: 1
+EARLIEST START: 262316
+SLACK :222455
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 7
+NAME: call-electrician
+TIME: 15
+STAFF: 1
+EARLIEST START: 262316
+SLACK :181337
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: install-electrical-gate-opener
+TIME: 41245
+STAFF: 2
+EARLIEST START: 363997
+SLACK :79671
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 9
+NAME: build-walls
+TIME: 6127
+STAFF: 4
+EARLIEST START: 303548
+SLACK :119676
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 10 | TASK ID: 13 | 
+--------------
+
+ID: 10
+NAME: add-gate
+TIME: 54322
+STAFF: 3
+EARLIEST START: 309675
+SLACK :79671
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 11
+NAME: build-stairs
+TIME: 4325
+STAFF: 2
+EARLIEST START: 303548
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 12 | 
+--------------
+
+ID: 12
+NAME: add-2nd-floor
+TIME: 121478
+STAFF: 4
+EARLIEST START: 307873
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 13 | 
+--------------
+
+ID: 13
+NAME: isolate-room
+TIME: 1242
+STAFF: 3
+EARLIEST START: 429351
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 14 | 
+--------------
+
+ID: 14
+NAME: furnish-appartment
+TIME: 54320
+STAFF: 2
+EARLIEST START: 430593
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 1
+
+       Current staff: 1
+
+------------------------
+Time 14280
+------------------------
+       Finishing task 1
+
+       Starting task 2
+
+       Starting task 3
+
+       Current staff: 4
+
+------------------------
+Time 14284
+------------------------
+       Finishing task 2
+
+       Current staff: 3
+
+------------------------
+Time 230182
+------------------------
+       Finishing task 3
+
+       Starting task 4
+
+       Current staff: 2
+
+------------------------
+Time 262316
+------------------------
+       Finishing task 4
+
+       Starting task 5
+
+       Starting task 6
+
+       Starting task 7
+
+       Current staff: 6
+
+------------------------
+Time 262331
+------------------------
+       Finishing task 7
+
+       Current staff: 5
+
+------------------------
+Time 262458
+------------------------
+       Finishing task 6
+
+       Current staff: 4
+
+------------------------
+Time 303548
+------------------------
+       Finishing task 5
+
+       Starting task 9
+
+       Starting task 11
+
+       Current staff: 6
+
+------------------------
+Time 307873
+------------------------
+       Finishing task 11
+
+       Starting task 12
+
+       Current staff: 8
+
+------------------------
+Time 309675
+------------------------
+       Finishing task 9
+
+       Starting task 10
+
+       Current staff: 7
+
+------------------------
+Time 363997
+------------------------
+       Starting task 8
+
+       Finishing task 10
+
+       Current staff: 6
+
+------------------------
+Time 405242
+------------------------
+       Finishing task 8
+
+       Current staff: 4
+
+------------------------
+Time 429351
+------------------------
+       Finishing task 12
+
+       Starting task 13
+
+       Current staff: 3
+
+------------------------
+Time 430593
+------------------------
+       Finishing task 13
+
+       Starting task 14
+
+       Current staff: 2
+
+------------------------
+Time 484913
+------------------------
+       Finishing task 14
+
+       Current staff: 0
+Number of tasks: 31
+
+
+PRINTING FOR PROJECT: buildrail.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Install-pavement
+TIME: 20
+STAFF: 10
+EARLIEST START: 186
+SLACK :12
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 2
+NAME: Install-railing
+TIME: 7
+STAFF: 10
+EARLIEST START: 5
+SLACK :206
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 3
+NAME: Install-ticketmachine
+TIME: 1
+STAFF: 10
+EARLIEST START: 63
+SLACK :154
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 4
+NAME: Paint-tower-1-with-arch
+TIME: 15
+STAFF: 6
+EARLIEST START: 119
+SLACK :84
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Paint-tower-2
+TIME: 12
+STAFF: 6
+EARLIEST START: 124
+SLACK :82
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 6
+NAME: Paint-trusses
+TIME: 27
+STAFF: 6
+EARLIEST START: 186
+SLACK :5
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 7
+NAME: Paint-cables-and-rods
+TIME: 18
+STAFF: 6
+EARLIEST START: 186
+SLACK :14
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 8
+NAME: Put-lane-tunnel-and-intersection
+TIME: 12
+STAFF: 7
+EARLIEST START: 51
+SLACK :143
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 31 | 
+--------------
+
+ID: 9
+NAME: Setup-barrack
+TIME: 3
+STAFF: 10
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 10 | TASK ID: 11 | TASK ID: 12 | TASK ID: 14 | TASK ID: 16 | TASK ID: 17 | 
+--------------
+
+ID: 10
+NAME: Prepare-storage
+TIME: 2
+STAFF: 4
+EARLIEST START: 3
+SLACK :206
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | 
+--------------
+
+ID: 11
+NAME: Rig-ramspace-reinforcing
+TIME: 1
+STAFF: 4
+EARLIEST START: 3
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 18 | TASK ID: 19 | TASK ID: 20 | 
+--------------
+
+ID: 12
+NAME: Build-tunnel
+TIME: 30
+STAFF: 12
+EARLIEST START: 3
+SLACK :167
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 13 | 
+--------------
+
+ID: 13
+NAME: Clean-tunnel
+TIME: 18
+STAFF: 12
+EARLIEST START: 33
+SLACK :143
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 14
+NAME: Build-intersection
+TIME: 25
+STAFF: 12
+EARLIEST START: 3
+SLACK :170
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 15 | 
+--------------
+
+ID: 15
+NAME: Clean-intersection
+TIME: 20
+STAFF: 12
+EARLIEST START: 28
+SLACK :146
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 16
+NAME: Build-towerfoundation-1
+TIME: 35
+STAFF: 12
+EARLIEST START: 3
+SLACK :11
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 21 | 
+--------------
+
+ID: 17
+NAME: Build-towerfoundation-2
+TIME: 45
+STAFF: 12
+EARLIEST START: 3
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 22 | 
+--------------
+
+ID: 18
+NAME: Make-armouring-tower-1
+TIME: 40
+STAFF: 4
+EARLIEST START: 4
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 21 | 
+--------------
+
+ID: 19
+NAME: Make-armouring-tower-2
+TIME: 25
+STAFF: 4
+EARLIEST START: 4
+SLACK :19
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 22 | 
+--------------
+
+ID: 20
+NAME: Make-armouring-arch
+TIME: 12
+STAFF: 4
+EARLIEST START: 4
+SLACK :140
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 23 | 
+--------------
+
+ID: 21
+NAME: Encase-and-armour-tower-1
+TIME: 15
+STAFF: 5
+EARLIEST START: 44
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 24 | 
+--------------
+
+ID: 22
+NAME: Encase-and-armour-tower-2
+TIME: 16
+STAFF: 5
+EARLIEST START: 48
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 25 | 
+--------------
+
+ID: 23
+NAME: Encase-and-armour-arch
+TIME: 30
+STAFF: 5
+EARLIEST START: 16
+SLACK :140
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 26 | 
+--------------
+
+ID: 24
+NAME: Cast-tower-1
+TIME: 60
+STAFF: 7
+EARLIEST START: 59
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 4 | TASK ID: 27 | 
+--------------
+
+ID: 25
+NAME: Cast-tower-2
+TIME: 60
+STAFF: 7
+EARLIEST START: 64
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 27 | 
+--------------
+
+ID: 26
+NAME: Cast-arch
+TIME: 20
+STAFF: 7
+EARLIEST START: 46
+SLACK :140
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 31 | 
+--------------
+
+ID: 27
+NAME: Stretch-two-maincables
+TIME: 25
+STAFF: 10
+EARLIEST START: 124
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 28 | TASK ID: 29 | 
+--------------
+
+ID: 28
+NAME: Build-truss-1-with-rods
+TIME: 30
+STAFF: 10
+EARLIEST START: 149
+SLACK :7
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | TASK ID: 6 | TASK ID: 7 | TASK ID: 30 | 
+--------------
+
+ID: 29
+NAME: Build-truss-2-with-rods
+TIME: 37
+STAFF: 10
+EARLIEST START: 149
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | TASK ID: 6 | TASK ID: 7 | TASK ID: 30 | 
+--------------
+
+ID: 30
+NAME: Cast-lane-on-truss
+TIME: 20
+STAFF: 7
+EARLIEST START: 186
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 31 | 
+--------------
+
+ID: 31
+NAME: Polish-lane-on-arch
+TIME: 12
+STAFF: 7
+EARLIEST START: 206
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 9
+
+       Current staff: 10
+
+------------------------
+Time 3
+------------------------
+       Finishing task 9
+
+       Starting task 10
+
+       Starting task 11
+
+       Starting task 12
+
+       Starting task 14
+
+       Starting task 16
+
+       Starting task 17
+
+       Current staff: 56
+
+------------------------
+Time 4
+------------------------
+       Finishing task 11
+
+       Starting task 18
+
+       Starting task 19
+
+       Starting task 20
+
+       Current staff: 64
+
+------------------------
+Time 5
+------------------------
+       Starting task 2
+
+       Finishing task 10
+
+       Current staff: 70
+
+------------------------
+Time 12
+------------------------
+       Finishing task 2
+
+       Current staff: 60
+
+------------------------
+Time 16
+------------------------
+       Finishing task 20
+
+       Starting task 23
+
+       Current staff: 61
+
+------------------------
+Time 28
+------------------------
+       Finishing task 14
+
+       Starting task 15
+
+       Current staff: 61
+
+------------------------
+Time 29
+------------------------
+       Finishing task 19
+
+       Current staff: 57
+
+------------------------
+Time 33
+------------------------
+       Finishing task 12
+
+       Starting task 13
+
+       Current staff: 57
+
+------------------------
+Time 38
+------------------------
+       Finishing task 16
+
+       Current staff: 45
+
+------------------------
+Time 44
+------------------------
+       Finishing task 18
+
+       Starting task 21
+
+       Current staff: 46
+
+------------------------
+Time 46
+------------------------
+       Finishing task 23
+
+       Starting task 26
+
+       Current staff: 48
+
+------------------------
+Time 48
+------------------------
+       Finishing task 15
+
+       Finishing task 17
+
+       Starting task 22
+
+       Current staff: 29
+
+------------------------
+Time 51
+------------------------
+       Starting task 8
+
+       Finishing task 13
+
+       Current staff: 24
+
+------------------------
+Time 59
+------------------------
+       Finishing task 21
+
+       Starting task 24
+
+       Current staff: 26
+
+------------------------
+Time 63
+------------------------
+       Starting task 3
+
+       Finishing task 8
+
+       Current staff: 29
+
+------------------------
+Time 64
+------------------------
+       Finishing task 3
+
+       Finishing task 22
+
+       Starting task 25
+
+       Current staff: 21
+
+------------------------
+Time 66
+------------------------
+       Finishing task 26
+
+       Current staff: 14
+
+------------------------
+Time 119
+------------------------
+       Starting task 4
+
+       Finishing task 24
+
+       Current staff: 13
+
+------------------------
+Time 124
+------------------------
+       Starting task 5
+
+       Finishing task 25
+
+       Starting task 27
+
+       Current staff: 22
+
+------------------------
+Time 134
+------------------------
+       Finishing task 4
+
+       Current staff: 16
+
+------------------------
+Time 136
+------------------------
+       Finishing task 5
+
+       Current staff: 10
+
+------------------------
+Time 149
+------------------------
+       Finishing task 27
+
+       Starting task 28
+
+       Starting task 29
+
+       Current staff: 20
+
+------------------------
+Time 179
+------------------------
+       Finishing task 28
+
+       Current staff: 10
+
+------------------------
+Time 186
+------------------------
+       Starting task 1
+
+       Starting task 6
+
+       Starting task 7
+
+       Finishing task 29
+
+       Starting task 30
+
+       Current staff: 29
+
+------------------------
+Time 204
+------------------------
+       Finishing task 7
+
+       Current staff: 23
+
+------------------------
+Time 206
+------------------------
+       Finishing task 1
+
+       Finishing task 30
+
+       Starting task 31
+
+       Current staff: 13
+
+------------------------
+Time 213
+------------------------
+       Finishing task 6
+
+       Current staff: 7
+
+------------------------
+Time 218
+------------------------
+       Finishing task 31
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: buildhouse1.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Build-walls
+TIME: 4
+STAFF: 2
+EARLIEST START: 4
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: Build-roofs
+TIME: 6
+STAFF: 4
+EARLIEST START: 8
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | TASK ID: 7 | 
+--------------
+
+ID: 3
+NAME: Put-on-wallpapers
+TIME: 1
+STAFF: 2
+EARLIEST START: 14
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 4
+NAME: Put-on-tiles
+TIME: 1
+STAFF: 3
+EARLIEST START: 14
+SLACK :7
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Build-foundation
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | TASK ID: 6 | 
+--------------
+
+ID: 6
+NAME: Make-floor
+TIME: 2
+STAFF: 2
+EARLIEST START: 4
+SLACK :8
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 7
+NAME: Put-carpet-floor
+TIME: 4
+STAFF: 2
+EARLIEST START: 14
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: Move-in
+TIME: 4
+STAFF: 4
+EARLIEST START: 18
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 5
+
+       Current staff: 2
+
+------------------------
+Time 4
+------------------------
+       Starting task 1
+
+       Finishing task 5
+
+       Starting task 6
+
+       Current staff: 4
+
+------------------------
+Time 6
+------------------------
+       Finishing task 6
+
+       Current staff: 2
+
+------------------------
+Time 8
+------------------------
+       Finishing task 1
+
+       Starting task 2
+
+       Current staff: 4
+
+------------------------
+Time 14
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Starting task 7
+
+       Current staff: 7
+
+------------------------
+Time 15
+------------------------
+       Finishing task 3
+
+       Finishing task 4
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Starting task 8
+
+       Current staff: 4
+
+------------------------
+Time 22
+------------------------
+       Finishing task 8
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: buildhouse2.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Build-walls
+TIME: 4
+STAFF: 2
+EARLIEST START: 4
+SLACK :-14
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: Build-roofs
+TIME: 6
+STAFF: 4
+EARLIEST START: 0
+SLACK :-6
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | TASK ID: 7 | 
+--------------
+
+ID: 3
+NAME: Put-on-wallpapers
+TIME: 1
+STAFF: 2
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 4
+NAME: Put-on-tiles
+TIME: 1
+STAFF: 3
+EARLIEST START: 0
+SLACK :7
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Build-foundation
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :-14
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | 
+--------------
+
+ID: 6
+NAME: Make-floor
+TIME: 2
+STAFF: 2
+EARLIEST START: 0
+SLACK :-12
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | 
+--------------
+
+ID: 7
+NAME: Put-carpet-floor
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: Move-in
+TIME: 4
+STAFF: 4
+EARLIEST START: 0
+SLACK :4
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+This project is unrealizable because of a cycle @ 2->6->1->7->
+
+
+PRINTING FOR PROJECT: examplefigure.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: 1
+TIME: 3
+STAFF: 4
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: 2
+TIME: 5
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | 
+--------------
+
+ID: 3
+NAME: 3
+TIME: 1
+STAFF: 2
+EARLIEST START: 5
+SLACK :1
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 6 | 
+--------------
+
+ID: 4
+NAME: 4
+TIME: 2
+STAFF: 4
+EARLIEST START: 5
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | 
+--------------
+
+ID: 5
+NAME: 5
+TIME: 4
+STAFF: 3
+EARLIEST START: 6
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 6
+NAME: 6
+TIME: 8
+STAFF: 4
+EARLIEST START: 7
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | TASK ID: 8 | 
+--------------
+
+ID: 7
+NAME: 7
+TIME: 3
+STAFF: 2
+EARLIEST START: 15
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 8
+NAME: 8
+TIME: 1
+STAFF: 3
+EARLIEST START: 15
+SLACK :2
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 1
+
+       Starting task 2
+
+       Current staff: 6
+
+------------------------
+Time 3
+------------------------
+       Finishing task 1
+
+       Current staff: 2
+
+------------------------
+Time 5
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Current staff: 6
+
+------------------------
+Time 6
+------------------------
+       Finishing task 3
+
+       Starting task 5
+
+       Current staff: 7
+
+------------------------
+Time 7
+------------------------
+       Finishing task 4
+
+       Starting task 6
+
+       Current staff: 7
+
+------------------------
+Time 10
+------------------------
+       Finishing task 5
+
+       Current staff: 4
+
+------------------------
+Time 15
+------------------------
+       Finishing task 6
+
+       Starting task 7
+
+       Starting task 8
+
+       Current staff: 5
+
+------------------------
+Time 16
+------------------------
+       Finishing task 8
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: examplefigure.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: 1
+TIME: 3
+STAFF: 4
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: 2
+TIME: 5
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | 
+--------------
+
+ID: 3
+NAME: 3
+TIME: 1
+STAFF: 2
+EARLIEST START: 5
+SLACK :1
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 6 | 
+--------------
+
+ID: 4
+NAME: 4
+TIME: 2
+STAFF: 4
+EARLIEST START: 5
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | 
+--------------
+
+ID: 5
+NAME: 5
+TIME: 4
+STAFF: 3
+EARLIEST START: 6
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 6
+NAME: 6
+TIME: 8
+STAFF: 4
+EARLIEST START: 7
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | TASK ID: 8 | 
+--------------
+
+ID: 7
+NAME: 7
+TIME: 3
+STAFF: 2
+EARLIEST START: 15
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 8
+NAME: 8
+TIME: 1
+STAFF: 3
+EARLIEST START: 15
+SLACK :2
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 1
+
+       Starting task 2
+
+       Current staff: 6
+
+------------------------
+Time 3
+------------------------
+       Finishing task 1
+
+       Current staff: 2
+
+------------------------
+Time 5
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Current staff: 6
+
+------------------------
+Time 6
+------------------------
+       Finishing task 3
+
+       Starting task 5
+
+       Current staff: 7
+
+------------------------
+Time 7
+------------------------
+       Finishing task 4
+
+       Starting task 6
+
+       Current staff: 7
+
+------------------------
+Time 10
+------------------------
+       Finishing task 5
+
+       Current staff: 4
+
+------------------------
+Time 15
+------------------------
+       Finishing task 6
+
+       Starting task 7
+
+       Starting task 8
+
+       Current staff: 5
+
+------------------------
+Time 16
+------------------------
+       Finishing task 8
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: buildhouse1.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Build-walls
+TIME: 4
+STAFF: 2
+EARLIEST START: 4
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: Build-roofs
+TIME: 6
+STAFF: 4
+EARLIEST START: 8
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | TASK ID: 7 | 
+--------------
+
+ID: 3
+NAME: Put-on-wallpapers
+TIME: 1
+STAFF: 2
+EARLIEST START: 14
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 4
+NAME: Put-on-tiles
+TIME: 1
+STAFF: 3
+EARLIEST START: 14
+SLACK :7
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Build-foundation
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | TASK ID: 6 | 
+--------------
+
+ID: 6
+NAME: Make-floor
+TIME: 2
+STAFF: 2
+EARLIEST START: 4
+SLACK :8
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 7
+NAME: Put-carpet-floor
+TIME: 4
+STAFF: 2
+EARLIEST START: 14
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: Move-in
+TIME: 4
+STAFF: 4
+EARLIEST START: 18
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 5
+
+       Current staff: 2
+
+------------------------
+Time 4
+------------------------
+       Starting task 1
+
+       Finishing task 5
+
+       Starting task 6
+
+       Current staff: 4
+
+------------------------
+Time 6
+------------------------
+       Finishing task 6
+
+       Current staff: 2
+
+------------------------
+Time 8
+------------------------
+       Finishing task 1
+
+       Starting task 2
+
+       Current staff: 4
+
+------------------------
+Time 14
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Starting task 7
+
+       Current staff: 7
+
+------------------------
+Time 15
+------------------------
+       Finishing task 3
+
+       Finishing task 4
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Starting task 8
+
+       Current staff: 4
+
+------------------------
+Time 22
+------------------------
+       Finishing task 8
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: buildhouse2.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Build-walls
+TIME: 4
+STAFF: 2
+EARLIEST START: 4
+SLACK :-14
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: Build-roofs
+TIME: 6
+STAFF: 4
+EARLIEST START: 0
+SLACK :-6
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | TASK ID: 7 | 
+--------------
+
+ID: 3
+NAME: Put-on-wallpapers
+TIME: 1
+STAFF: 2
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 4
+NAME: Put-on-tiles
+TIME: 1
+STAFF: 3
+EARLIEST START: 0
+SLACK :7
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Build-foundation
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :-14
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | 
+--------------
+
+ID: 6
+NAME: Make-floor
+TIME: 2
+STAFF: 2
+EARLIEST START: 0
+SLACK :-12
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | 
+--------------
+
+ID: 7
+NAME: Put-carpet-floor
+TIME: 4
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: Move-in
+TIME: 4
+STAFF: 4
+EARLIEST START: 0
+SLACK :4
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+This project is unrealizable because of a cycle @ 2->6->1->7->
+
+
+PRINTING FOR PROJECT: examplefigure.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: 1
+TIME: 3
+STAFF: 4
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: 2
+TIME: 5
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | 
+--------------
+
+ID: 3
+NAME: 3
+TIME: 1
+STAFF: 2
+EARLIEST START: 5
+SLACK :1
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 6 | 
+--------------
+
+ID: 4
+NAME: 4
+TIME: 2
+STAFF: 4
+EARLIEST START: 5
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | 
+--------------
+
+ID: 5
+NAME: 5
+TIME: 4
+STAFF: 3
+EARLIEST START: 6
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 6
+NAME: 6
+TIME: 8
+STAFF: 4
+EARLIEST START: 7
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | TASK ID: 8 | 
+--------------
+
+ID: 7
+NAME: 7
+TIME: 3
+STAFF: 2
+EARLIEST START: 15
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 8
+NAME: 8
+TIME: 1
+STAFF: 3
+EARLIEST START: 15
+SLACK :2
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 1
+
+       Starting task 2
+
+       Current staff: 6
+
+------------------------
+Time 3
+------------------------
+       Finishing task 1
+
+       Current staff: 2
+
+------------------------
+Time 5
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Current staff: 6
+
+------------------------
+Time 6
+------------------------
+       Finishing task 3
+
+       Starting task 5
+
+       Current staff: 7
+
+------------------------
+Time 7
+------------------------
+       Finishing task 4
+
+       Starting task 6
+
+       Current staff: 7
+
+------------------------
+Time 10
+------------------------
+       Finishing task 5
+
+       Current staff: 4
+
+------------------------
+Time 15
+------------------------
+       Finishing task 6
+
+       Starting task 7
+
+       Starting task 8
+
+       Current staff: 5
+
+------------------------
+Time 16
+------------------------
+       Finishing task 8
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: examplefigure.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: 1
+TIME: 3
+STAFF: 4
+EARLIEST START: 0
+SLACK :3
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: 2
+TIME: 5
+STAFF: 2
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 4 | 
+--------------
+
+ID: 3
+NAME: 3
+TIME: 1
+STAFF: 2
+EARLIEST START: 5
+SLACK :1
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 6 | 
+--------------
+
+ID: 4
+NAME: 4
+TIME: 2
+STAFF: 4
+EARLIEST START: 5
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 6 | 
+--------------
+
+ID: 5
+NAME: 5
+TIME: 4
+STAFF: 3
+EARLIEST START: 6
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | 
+--------------
+
+ID: 6
+NAME: 6
+TIME: 8
+STAFF: 4
+EARLIEST START: 7
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 7 | TASK ID: 8 | 
+--------------
+
+ID: 7
+NAME: 7
+TIME: 3
+STAFF: 2
+EARLIEST START: 15
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 8
+NAME: 8
+TIME: 1
+STAFF: 3
+EARLIEST START: 15
+SLACK :2
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 1
+
+       Starting task 2
+
+       Current staff: 6
+
+------------------------
+Time 3
+------------------------
+       Finishing task 1
+
+       Current staff: 2
+
+------------------------
+Time 5
+------------------------
+       Finishing task 2
+
+       Starting task 3
+
+       Starting task 4
+
+       Current staff: 6
+
+------------------------
+Time 6
+------------------------
+       Finishing task 3
+
+       Starting task 5
+
+       Current staff: 7
+
+------------------------
+Time 7
+------------------------
+       Finishing task 4
+
+       Starting task 6
+
+       Current staff: 7
+
+------------------------
+Time 10
+------------------------
+       Finishing task 5
+
+       Current staff: 4
+
+------------------------
+Time 15
+------------------------
+       Finishing task 6
+
+       Starting task 7
+
+       Starting task 8
+
+       Current staff: 5
+
+------------------------
+Time 16
+------------------------
+       Finishing task 8
+
+       Current staff: 2
+
+------------------------
+Time 18
+------------------------
+       Finishing task 7
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: buildgarage.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: get-paperwork
+TIME: 14280
+STAFF: 1
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | TASK ID: 3 | 
+--------------
+
+ID: 2
+NAME: call-contractor
+TIME: 4
+STAFF: 1
+EARLIEST START: 14280
+SLACK :215898
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 4 | 
+--------------
+
+ID: 3
+NAME: clean-yard
+TIME: 215902
+STAFF: 3
+EARLIEST START: 14280
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 4 | 
+--------------
+
+ID: 4
+NAME: build-foundation
+TIME: 32134
+STAFF: 2
+EARLIEST START: 230182
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 6 | TASK ID: 7 | 
+--------------
+
+ID: 5
+NAME: build-wall-support
+TIME: 41232
+STAFF: 4
+EARLIEST START: 262316
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | TASK ID: 9 | TASK ID: 11 | 
+--------------
+
+ID: 6
+NAME: lay-electrical-cables
+TIME: 142
+STAFF: 1
+EARLIEST START: 262316
+SLACK :222455
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 7
+NAME: call-electrician
+TIME: 15
+STAFF: 1
+EARLIEST START: 262316
+SLACK :181337
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 8
+NAME: install-electrical-gate-opener
+TIME: 41245
+STAFF: 2
+EARLIEST START: 363997
+SLACK :79671
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 9
+NAME: build-walls
+TIME: 6127
+STAFF: 4
+EARLIEST START: 303548
+SLACK :119676
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 10 | TASK ID: 13 | 
+--------------
+
+ID: 10
+NAME: add-gate
+TIME: 54322
+STAFF: 3
+EARLIEST START: 309675
+SLACK :79671
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 11
+NAME: build-stairs
+TIME: 4325
+STAFF: 2
+EARLIEST START: 303548
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 12 | 
+--------------
+
+ID: 12
+NAME: add-2nd-floor
+TIME: 121478
+STAFF: 4
+EARLIEST START: 307873
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 13 | 
+--------------
+
+ID: 13
+NAME: isolate-room
+TIME: 1242
+STAFF: 3
+EARLIEST START: 429351
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 14 | 
+--------------
+
+ID: 14
+NAME: furnish-appartment
+TIME: 54320
+STAFF: 2
+EARLIEST START: 430593
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 1
+
+       Current staff: 1
+
+------------------------
+Time 14280
+------------------------
+       Finishing task 1
+
+       Starting task 2
+
+       Starting task 3
+
+       Current staff: 4
+
+------------------------
+Time 14284
+------------------------
+       Finishing task 2
+
+       Current staff: 3
+
+------------------------
+Time 230182
+------------------------
+       Finishing task 3
+
+       Starting task 4
+
+       Current staff: 2
+
+------------------------
+Time 262316
+------------------------
+       Finishing task 4
+
+       Starting task 5
+
+       Starting task 6
+
+       Starting task 7
+
+       Current staff: 6
+
+------------------------
+Time 262331
+------------------------
+       Finishing task 7
+
+       Current staff: 5
+
+------------------------
+Time 262458
+------------------------
+       Finishing task 6
+
+       Current staff: 4
+
+------------------------
+Time 303548
+------------------------
+       Finishing task 5
+
+       Starting task 9
+
+       Starting task 11
+
+       Current staff: 6
+
+------------------------
+Time 307873
+------------------------
+       Finishing task 11
+
+       Starting task 12
+
+       Current staff: 8
+
+------------------------
+Time 309675
+------------------------
+       Finishing task 9
+
+       Starting task 10
+
+       Current staff: 7
+
+------------------------
+Time 363997
+------------------------
+       Starting task 8
+
+       Finishing task 10
+
+       Current staff: 6
+
+------------------------
+Time 405242
+------------------------
+       Finishing task 8
+
+       Current staff: 4
+
+------------------------
+Time 429351
+------------------------
+       Finishing task 12
+
+       Starting task 13
+
+       Current staff: 3
+
+------------------------
+Time 430593
+------------------------
+       Finishing task 13
+
+       Starting task 14
+
+       Current staff: 2
+
+------------------------
+Time 484913
+------------------------
+       Finishing task 14
+
+       Current staff: 0
+
+
+PRINTING FOR PROJECT: buildrail.txt
+*********************************************************************
+*********************************************************************
+ALL TASKS: 
+
+ID: 1
+NAME: Install-pavement
+TIME: 20
+STAFF: 10
+EARLIEST START: 186
+SLACK :12
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 2
+NAME: Install-railing
+TIME: 7
+STAFF: 10
+EARLIEST START: 5
+SLACK :206
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 3
+NAME: Install-ticketmachine
+TIME: 1
+STAFF: 10
+EARLIEST START: 63
+SLACK :154
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 4
+NAME: Paint-tower-1-with-arch
+TIME: 15
+STAFF: 6
+EARLIEST START: 119
+SLACK :84
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 5
+NAME: Paint-tower-2
+TIME: 12
+STAFF: 6
+EARLIEST START: 124
+SLACK :82
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 6
+NAME: Paint-trusses
+TIME: 27
+STAFF: 6
+EARLIEST START: 186
+SLACK :5
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 7
+NAME: Paint-cables-and-rods
+TIME: 18
+STAFF: 6
+EARLIEST START: 186
+SLACK :14
+NOT CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+ID: 8
+NAME: Put-lane-tunnel-and-intersection
+TIME: 12
+STAFF: 7
+EARLIEST START: 51
+SLACK :143
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 3 | TASK ID: 31 | 
+--------------
+
+ID: 9
+NAME: Setup-barrack
+TIME: 3
+STAFF: 10
+EARLIEST START: 0
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 10 | TASK ID: 11 | TASK ID: 12 | TASK ID: 14 | TASK ID: 16 | TASK ID: 17 | 
+--------------
+
+ID: 10
+NAME: Prepare-storage
+TIME: 2
+STAFF: 4
+EARLIEST START: 3
+SLACK :206
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 2 | 
+--------------
+
+ID: 11
+NAME: Rig-ramspace-reinforcing
+TIME: 1
+STAFF: 4
+EARLIEST START: 3
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 18 | TASK ID: 19 | TASK ID: 20 | 
+--------------
+
+ID: 12
+NAME: Build-tunnel
+TIME: 30
+STAFF: 12
+EARLIEST START: 3
+SLACK :167
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 13 | 
+--------------
+
+ID: 13
+NAME: Clean-tunnel
+TIME: 18
+STAFF: 12
+EARLIEST START: 33
+SLACK :143
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 14
+NAME: Build-intersection
+TIME: 25
+STAFF: 12
+EARLIEST START: 3
+SLACK :170
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 15 | 
+--------------
+
+ID: 15
+NAME: Clean-intersection
+TIME: 20
+STAFF: 12
+EARLIEST START: 28
+SLACK :146
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 8 | 
+--------------
+
+ID: 16
+NAME: Build-towerfoundation-1
+TIME: 35
+STAFF: 12
+EARLIEST START: 3
+SLACK :11
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 21 | 
+--------------
+
+ID: 17
+NAME: Build-towerfoundation-2
+TIME: 45
+STAFF: 12
+EARLIEST START: 3
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 22 | 
+--------------
+
+ID: 18
+NAME: Make-armouring-tower-1
+TIME: 40
+STAFF: 4
+EARLIEST START: 4
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 21 | 
+--------------
+
+ID: 19
+NAME: Make-armouring-tower-2
+TIME: 25
+STAFF: 4
+EARLIEST START: 4
+SLACK :19
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 22 | 
+--------------
+
+ID: 20
+NAME: Make-armouring-arch
+TIME: 12
+STAFF: 4
+EARLIEST START: 4
+SLACK :140
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 23 | 
+--------------
+
+ID: 21
+NAME: Encase-and-armour-tower-1
+TIME: 15
+STAFF: 5
+EARLIEST START: 44
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 24 | 
+--------------
+
+ID: 22
+NAME: Encase-and-armour-tower-2
+TIME: 16
+STAFF: 5
+EARLIEST START: 48
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 25 | 
+--------------
+
+ID: 23
+NAME: Encase-and-armour-arch
+TIME: 30
+STAFF: 5
+EARLIEST START: 16
+SLACK :140
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 26 | 
+--------------
+
+ID: 24
+NAME: Cast-tower-1
+TIME: 60
+STAFF: 7
+EARLIEST START: 59
+SLACK :5
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 4 | TASK ID: 27 | 
+--------------
+
+ID: 25
+NAME: Cast-tower-2
+TIME: 60
+STAFF: 7
+EARLIEST START: 64
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 5 | TASK ID: 27 | 
+--------------
+
+ID: 26
+NAME: Cast-arch
+TIME: 20
+STAFF: 7
+EARLIEST START: 46
+SLACK :140
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 31 | 
+--------------
+
+ID: 27
+NAME: Stretch-two-maincables
+TIME: 25
+STAFF: 10
+EARLIEST START: 124
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 28 | TASK ID: 29 | 
+--------------
+
+ID: 28
+NAME: Build-truss-1-with-rods
+TIME: 30
+STAFF: 10
+EARLIEST START: 149
+SLACK :7
+NOT CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | TASK ID: 6 | TASK ID: 7 | TASK ID: 30 | 
+--------------
+
+ID: 29
+NAME: Build-truss-2-with-rods
+TIME: 37
+STAFF: 10
+EARLIEST START: 149
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 1 | TASK ID: 6 | TASK ID: 7 | TASK ID: 30 | 
+--------------
+
+ID: 30
+NAME: Cast-lane-on-truss
+TIME: 20
+STAFF: 7
+EARLIEST START: 186
+SLACK :0
+CRITICAL
+
+THIS TASK MUST BE COMPLETED BEFORE STARTING:
+TASK ID: 31 | 
+--------------
+
+ID: 31
+NAME: Polish-lane-on-arch
+TIME: 12
+STAFF: 7
+EARLIEST START: 206
+SLACK :0
+CRITICAL
+
+NO TASK IS DEPENDENT ON THIS
+--------------
+
+
+
+------------------------
+Time 0
+------------------------
+       Starting task 9
+
+       Current staff: 10
+
+------------------------
+Time 3
+------------------------
+       Finishing task 9
+
+       Starting task 10
+
+       Starting task 11
+
+       Starting task 12
+
+       Starting task 14
+
+       Starting task 16
+
+       Starting task 17
+
+       Current staff: 56
+
+------------------------
+Time 4
+------------------------
+       Finishing task 11
+
+       Starting task 18
+
+       Starting task 19
+
+       Starting task 20
+
+       Current staff: 64
+
+------------------------
+Time 5
+------------------------
+       Starting task 2
+
+       Finishing task 10
+
+       Current staff: 70
+
+------------------------
+Time 12
+------------------------
+       Finishing task 2
+
+       Current staff: 60
+
+------------------------
+Time 16
+------------------------
+       Finishing task 20
+
+       Starting task 23
+
+       Current staff: 61
+
+------------------------
+Time 28
+------------------------
+       Finishing task 14
+
+       Starting task 15
+
+       Current staff: 61
+
+------------------------
+Time 29
+------------------------
+       Finishing task 19
+
+       Current staff: 57
+
+------------------------
+Time 33
+------------------------
+       Finishing task 12
+
+       Starting task 13
+
+       Current staff: 57
+
+------------------------
+Time 38
+------------------------
+       Finishing task 16
+
+       Current staff: 45
+
+------------------------
+Time 44
+------------------------
+       Finishing task 18
+
+       Starting task 21
+
+       Current staff: 46
+
+------------------------
+Time 46
+------------------------
+       Finishing task 23
+
+       Starting task 26
+
+       Current staff: 48
+
+------------------------
+Time 48
+------------------------
+       Finishing task 15
+
+       Finishing task 17
+
+       Starting task 22
+
+       Current staff: 29
+
+------------------------
+Time 51
+------------------------
+       Starting task 8
+
+       Finishing task 13
+
+       Current staff: 24
+
+------------------------
+Time 59
+------------------------
+       Finishing task 21
+
+       Starting task 24
+
+       Current staff: 26
+
+------------------------
+Time 63
+------------------------
+       Starting task 3
+
+       Finishing task 8
+
+       Current staff: 29
+
+------------------------
+Time 64
+------------------------
+       Finishing task 3
+
+       Finishing task 22
+
+       Starting task 25
+
+       Current staff: 21
+
+------------------------
+Time 66
+------------------------
+       Finishing task 26
+
+       Current staff: 14
+
+------------------------
+Time 119
+------------------------
+       Starting task 4
+
+       Finishing task 24
+
+       Current staff: 13
+
+------------------------
+Time 124
+------------------------
+       Starting task 5
+
+       Finishing task 25
+
+       Starting task 27
+
+       Current staff: 22
+
+------------------------
+Time 134
+------------------------
+       Finishing task 4
+
+       Current staff: 16
+
+------------------------
+Time 136
+------------------------
+       Finishing task 5
+
+       Current staff: 10
+
+------------------------
+Time 149
+------------------------
+       Finishing task 27
+
+       Starting task 28
+
+       Starting task 29
+
+       Current staff: 20
+
+------------------------
+Time 179
+------------------------
+       Finishing task 28
+
+       Current staff: 10
+
+------------------------
+Time 186
+------------------------
+       Starting task 1
+
+       Starting task 6
+
+       Starting task 7
+
+       Finishing task 29
+
+       Starting task 30
+
+       Current staff: 29
+
+------------------------
+Time 204
+------------------------
+       Finishing task 7
+
+       Current staff: 23
+
+------------------------
+Time 206
+------------------------
+       Finishing task 1
+
+       Finishing task 30
+
+       Starting task 31
+
+       Current staff: 13
+
+------------------------
+Time 213
+------------------------
+       Finishing task 6
+
+       Current staff: 7
+
+------------------------
+Time 218
+------------------------
+       Finishing task 31
+
+       Current staff: 0

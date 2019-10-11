@@ -30,7 +30,16 @@ public class TaskGraph {
     }
   }
 
+  public String getCycle() {
+    return this.cycle;
+  }
 
+  // Source:
+  // https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/CycleInDirectedGraph.java
+  // O(TASK + OUTEDGES)
+  // Iterates through Tasks once and then trough its outEdges once.
+  // Worst case: O(N^2) if all tasks have all other tasks as neighbors.
+  // Possible weakness: if the graph has more than one cycle, one must go trough the greySet and find the separate cycles.
   public boolean hasCycle() {
     Set<Task> whiteSet = new HashSet<>();
     Set<Task> greySet = new HashSet<>();
@@ -50,23 +59,21 @@ public class TaskGraph {
     return false;
   }
 
+  // If dfs returns true, the task has been seen twice or more. And a cycle is present.
   public boolean dfs(Task current, Set<Task> whiteSet, Set<Task> greySet, Set<Task> blackSet){
-    whiteSet.remove(current);
-    greySet.add(current);
+    whiteSet.remove(current); // Whiteset contains the unproccesed Tasks.
+    greySet.add(current); // greyset contains tasks that have been seen, and possible cycle.
 
     for(Task outEdge: current.outEdges ){
-      if(blackSet.contains(outEdge)){
+      if(blackSet.contains(outEdge)){ // blackset contains the tasks not part of a cycle.
         continue;
       }
 
-      if(greySet.contains(outEdge)){
-
-        cycle += "This graph has cycle: ";
+      if(greySet.contains(outEdge)){ //
+        // Not counting this in the O() as it is not necessary to find the cycle.
         for (Task task: greySet){
-          cycle += "->" + task.id;
+          cycle += task.id + "->";
         }
-
-        cycle += "-> back to start.";
         return true;
       }
 
@@ -74,19 +81,23 @@ public class TaskGraph {
         return true;
       }
     }
-    greySet.remove(current);
-    blackSet.add(current);
+    greySet.remove(current); // If the method excecution gets to this point, the task is not part of a cycle
+    blackSet.add(current); // and may be added to the blacklist.
     return false;
   }
 
-
+  // Setting the earliestStart and topSorting has timecomplexity:
+  // O(TASK + OUTEDGES)
+  // It loops trough every task, and then its outEdges.
+  // Worst case would be O(N^2) if all tasks have all the other tasks as outEdges
+  // This cannot be the case as the graph would be cyclic to the fullest extent. And no topSort may be present.
   public Task[] topSort(){
     Stack<Task> s = new Stack<>();
     Task[] topSorted = new Task[tasks.length];
 
     for (Task elem: tasks){ // Finds all Tasks with 0 Predecessors.
       if(elem.getCntPredecessor() == 0){
-        s.push(elem);
+        s.push(elem); // adds them to the stack to be proccesed under.
       }
     }
 
@@ -102,20 +113,29 @@ public class TaskGraph {
         int oldES = successor.earliestStart;
         int potentialNewES = current.earliestStart + current.time;
 
+        // If there is a possible earliestStart that is higher than the highest so far
+        // It must be updated.
         if(oldES < potentialNewES){
           successor.setEarliestStart(potentialNewES);
         }
 
+        // Updating the shortes total time if the current task has largest earliestStart + finishTime
+        // That task must be the one to finish last.
         if( successor.getEarliestStart() + successor.getTime() > this.shortestTime) {
           this.shortestTime = successor.getEarliestStart() + successor.getTime();
         }
 
+        // "Removes" predecessor to be able to move a "lvl deeper".
         if(successor.getCntPredecessor() == 0){
           s.push(successor);
         }
       }
     }
 
+    // My implemetation needs this part to properly set the latest start.
+    // Not the proper way of doing it!
+    // Does more or less the same as the algorithm setting earliestStart, but in the opposite direction.
+    // Starting with the task with zero outEdges.
     s = new Stack<>();
 
     for (Task elem: tasks){
@@ -127,7 +147,6 @@ public class TaskGraph {
         s.push(elem);
       }
     }
-
     while(!s.isEmpty()){
       Task current = s.pop();
 
@@ -148,15 +167,17 @@ public class TaskGraph {
     }
 
     try {
-      if(i == tasks.length){
+      if(i == tasks.length){ // No cycle, and a topSort is possible.
         return topSorted;
 
-      } else {
-        System.out.println("Graph has cycel. Something went wrong.");
+      } else { // cycle is present, topSort not possible.
         return null;
       }
     }
+
     finally {
+      // Resets the variables used by the algorithm.
+      // Enabled more than one method call that uses the same variables.
       setCritical();
       resetTasks();
     }
@@ -170,54 +191,5 @@ public class TaskGraph {
         elem.setCritical(false);
       }
     }
-  }
-
-  public int shortestTime() {
-    ArrayList<Task> criticalPath = new ArrayList<>();
-    ArrayList<Task> startTasks = new ArrayList<>();
-
-    // //Finding first lvl.
-    for (Task task: tasks){
-      if (task.getCntPredecessor() == 0){
-        startTasks.add(task);
-      }
-    }
-    Task criticalTask = null;
-    int compTime = -1;
-
-    for(Task task: startTasks){
-      int taskTime = task.getTime();
-
-      if (taskTime > compTime){
-        compTime = taskTime;
-        criticalTask = task;
-      }
-    }
-    criticalPath.add(criticalTask);
-
-    while( !criticalPath.get(criticalPath.size()-1).outEdges.isEmpty() ){
-      criticalTask = null;
-      compTime = 0;
-
-      for (Task task: criticalPath.get(criticalPath.size()-1).outEdges){
-        int taskTime = task.getTime();
-        if(taskTime > compTime){
-          compTime = taskTime;
-          criticalTask = task;
-        }
-      }
-      criticalPath.add(criticalTask);
-    }
-
-    // criticalPath found.
-    System.out.println("Crit path");
-    int earliestFinish = 0;
-    for (Task task: criticalPath){
-      System.out.println(task);
-      earliestFinish += task.getTime();
-    }
-
-    return earliestFinish;
-
   }
 }

@@ -1,0 +1,26 @@
+Complexity and theoretical analysis
+
+During this analysis i am not considering the timecomplexity of the trival loops for acually setting up the graph and datastructure.
+Most are in the O(N^2) realm.
+
+1.
+Starting with hasCycle()
+It has a timecomplexity of O(TASK + TASK.outEdges) as it loops trought all tasks, and then all the tasks outEdges.
+In its worst case every task is neighbor to all the other tasks. This would make the graph max cyclic,
+and render the topsort algorithm unuseable as a topolocal sort is impossible with just a single a cycle present.
+
+The topSort() method also has a timecomplexity of O(TASK + TASK.outEdges) as it also loops through every task, and then its outEdges.
+To propely run this one should check for a cycle beforehand and avoid the possible worst case O(N^2).
+
+2.
+Assuming a project is realized when all its tasks is completed.
+The project is only realizeable if the graph does not contain any cycles.
+If it has even just two cyclic tasks those tasks would never be able to start, and then never completed.
+Then the graph would contain uncompleted tasks, and are therefore unable to be realized.
+
+3.
+For my implementation of hasCycle() i used DFS.
+
+And for my implemetation of topSort() i used BFS twice, once from the first level, and once from the last level.
+Where the first level is the tasks not dependent on any other task,
+and the last level being the tasks with no tasks depending on them.

@@ -7,19 +7,9 @@ import java.util.NoSuchElementException;
 
 public class ReadFile {
   Scanner scanner;
-  // File file;
-  // TaskGraph graphFromFile;
 
   public ReadFile(){
-    // this.file = new File(filePath);
-    //
-    // try{
-    //   this.scanner = new Scanner(this.file);
-    // } catch (FileNotFoundException e){
-    //   System.out.println("File not found!");
-    // }
 
-    // this.scanner = new Scanner();
   }
 
   public TaskGraph buildGraph(String filePath){
@@ -36,7 +26,6 @@ public class ReadFile {
     if (scanner.hasNextLine()){
       String line = scanner.nextLine(); // Gets first line of File - contains number of tasks in graph.
       tasks = new Task[Integer.parseInt(line)]; // Creates Task[] to fill and give to TaskGraph constructor.
-      System.out.println("Number of tasks: " + line);
     } else { // no lines in file.
       System.out.println("Error accessing file.");
       return null;
@@ -85,9 +74,5 @@ public class ReadFile {
 
     TaskGraph taskGraph = new TaskGraph(tasks);
     return taskGraph;
-  }
-
-  public void setDependencies() {
-
   }
 }

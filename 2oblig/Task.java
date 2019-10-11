@@ -57,6 +57,10 @@ public class Task {
     }
   }
 
+  public int getStaff(){
+    return this.staff;
+  }
+
   public int getTime(){
     return this.time;
   }
@@ -84,9 +88,6 @@ public class Task {
   public void subPredecessor(){
     cntPredecessors--;
   }
-  // public void addPredecessor(){
-  //   cntPredecessors++;
-  // }
 
   public void subSuccessor(){
     cntSuccessors--;
@@ -110,31 +111,27 @@ public class Task {
 
   public String toString(){
     String s = "";
-    s += "Id: " + String.valueOf(this.id) + "\n";
-    s += "Name: " + name + "\n";
-    s += "Predecessors: " + cntPredecessors + "\n";
-    s += "Time: " + time  + "\n";
-    // s += "Staff: " + staff + "\n";
-    s += "earliest Start: " + this.earliestStart;
-    // s += "LS: " + this.latestStart + "\n";
-
-    // s += "depEdges: ";
-    // for (int elem : depEdgesIndex){
-      // s += String.valueOf(elem) + " ";
-    // }
-
-    // s += "\n";
-    // s += "Out edges \n";
-    // for (Task elem: outEdges){
-    //   s += "Out " + String.valueOf(this.id) + "->" + String.valueOf(elem.id);// + " HASH:" + System.identityHashCode(elem) + " "; //String.valueOf(elem.id) + " ";
-    // }
-
-    // s += "\n IN EDGE: \n";
-    // for (Task elem: inEdges){
-    //   s += elem.id + "..";
-    // }
+    s += "ID: " + String.valueOf(this.id) + "\n";
+    s += "NAME: " + name + "\n";
+    s += "TIME: " + time  + "\n";
+    s += "STAFF: " + staff + "\n";
+    s += "EARLIEST START: " + this.earliestStart;
     s += "\nSLACK :" + (latestStart-earliestStart);
-    s += "\nCRITICAL: " + critical;
+    if(critical){
+      s += "\nCRITICAL";
+    } else {
+      s += "\nNOT CRITICAL";
+    }
+
+    if (this.outEdges.size() != 0){
+      s += "\n\nTHIS TASK MUST BE COMPLETED BEFORE STARTING:\n";
+      for (Task elem: this.outEdges){
+        s += "TASK ID: " + elem.id + " | ";
+      }
+    } else {
+      s += "\n\nNO TASK IS DEPENDENT ON THIS";
+    }
+
     s += "\n--------------";
     s += "\n";
     return s;
