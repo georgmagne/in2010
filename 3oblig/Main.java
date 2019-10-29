@@ -5,9 +5,9 @@ import java.lang.Math;
 public class Main {
   public static void main(String[] args) {
 
+
+
     Random random = new Random(100);
-
-
     int arrSize = 10;
     int[] arr = new int[10];
     for(int i = 0; i < arr.length; i++ ){
@@ -19,7 +19,7 @@ public class Main {
     InsertionSort insert = new InsertionSort();
     insert.sortIntArr(arr);
     // System.out.println(arr);
-    printIntArr(arr);
+    // printIntArr(arr);
 
 
     arrSize = 10;
@@ -34,29 +34,23 @@ public class Main {
       arr1[i] = random1.nextInt(50);
       arr2[i] = random2.nextInt(50);
     }
+    
 
-    MergeSort merge = new MergeSort();
+    MergeSort mergeSorter = new MergeSort();
 
-    System.out.println();
+    mergeSorter.mergesort(arr1);
     System.out.println("arr1");
     printIntArr(arr1);
-    System.out.println("arr2");
-    printIntArr(arr2);
-
-    merge.sortIntArr(arr1, arr2, outArr);
-
-    System.out.println("outArr");
-    printIntArr(outArr);
 
   }
 
   public static void printIntArr(int[] arr) {
     String s = "[";
-    for (int elem : arr) {
-      s += elem + ", ";
+    for (int i = 0; i < arr.length - 1; i++) {
+      s += arr[i] + ", ";
     }
 
-    s += "]";
+    s += arr[arr.length-1] + "]";
 
     System.out.println(s);
   }
