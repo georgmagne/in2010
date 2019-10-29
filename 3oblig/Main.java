@@ -34,7 +34,7 @@ public class Main {
       arr1[i] = random1.nextInt(50);
       arr2[i] = random2.nextInt(50);
     }
-    
+
 
     MergeSort mergeSorter = new MergeSort();
 
@@ -42,6 +42,26 @@ public class Main {
     System.out.println("arr1");
     printIntArr(arr1);
 
+    int[] quickArr = makeRndArr(10, 300, 50);
+
+    QuickSort qsort = new QuickSort();
+
+    printIntArr(quickArr);
+    qsort.corrInPlaceQuickSort(quickArr, 0, quickArr.length-1);
+    printIntArr(quickArr);
+
+
+  }
+
+  public static int[] makeRndArr(int size, int seed, int range) {
+    int[] arr = new int[size];
+    Random r = new Random(seed);
+
+    for (int i = 0; i < size; i++){
+      arr[i] = r.nextInt(range);
+    }
+
+    return arr;
   }
 
   public static void printIntArr(int[] arr) {
