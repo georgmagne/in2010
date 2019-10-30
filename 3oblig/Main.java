@@ -4,55 +4,95 @@ import java.lang.Math;
 
 public class Main {
   public static void main(String[] args) {
-
-
-
-    Random random = new Random(100);
     int arrSize = 10;
-    int[] arr = new int[10];
-    for(int i = 0; i < arr.length; i++ ){
-      arr[i] = random.nextInt(50);
-      // System.out.println(arr[i]);
-    }
+    int[] arr;
 
-    // System.out.println(arr);
+    int[] arrIncreasing;// = {1, 2, 3, 4, 5, 6, 7, 8, 10};
+    int[] arrDecreasing;// = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+    // Testing Insertionsort
     InsertionSort insert = new InsertionSort();
+
+    arr = makeRndArr(arrSize, 100, 50);
+    arrIncreasing = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    arrDecreasing = new int[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+
+    System.out.println("TESTING INSERTIONSORT");
+    System.out.println("UNSORTED: ");
+    printIntArr(arr);
+    printIntArr(arrIncreasing);
+    printIntArr(arrDecreasing);
+
+    System.out.println("\nRUNNING: ");
+    System.out.println("RANDOM");
     insert.sortIntArr(arr);
-    // System.out.println(arr);
-    // printIntArr(arr);
+    System.out.println("\nINCREASING");
+    insert.sortIntArr(arrIncreasing);
+    System.out.println("\nDECREASING");
+    insert.sortIntArr(arrDecreasing);
+
+    System.out.println("\nSORTED: ");
+    printIntArr(arr);
+    printIntArr(arrIncreasing);
+    printIntArr(arrDecreasing);
+    System.out.println();
 
 
-    arrSize = 10;
-    int[] arr1 = new int[arrSize];
-    int[] arr2 = new int[arrSize];
-    int[] outArr = new int[arr1.length + arr2.length];
-
-    Random random1 = new Random(1337);
-    Random random2 = new Random(420);
-
-    for(int i = 0; i < arrSize; i++) {
-      arr1[i] = random1.nextInt(50);
-      arr2[i] = random2.nextInt(50);
-    }
-
-
+    // Testing Mergesort
     MergeSort mergeSorter = new MergeSort();
 
-    mergeSorter.mergesort(arr1);
-    System.out.println("arr1");
-    printIntArr(arr1);
+    arr = makeRndArr(arrSize, 100, 50);
+    arrIncreasing = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    arrDecreasing = new int[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 
-    int[] quickArr = makeRndArr(10, 300, 50);
+    System.out.println("TESTING MERGESORT");
+    System.out.println("UNSORTED: ");
+    printIntArr(arr);
+    printIntArr(arrIncreasing);
+    printIntArr(arrDecreasing);
 
+    System.out.println("\nRANDOM");
+    mergeSorter.mergesort(arr);
+    System.out.println("\nINCREASING");
+    mergeSorter.mergesort(arrIncreasing);
+    System.out.println("\nDECREASING");
+    mergeSorter.mergesort(arrDecreasing);
+
+    System.out.println("\nSORTED: ");
+    printIntArr(arr);
+    printIntArr(arrIncreasing);
+    printIntArr(arrDecreasing);
+    System.out.println();
+
+
+    // Testing Quicksort
     QuickSort qsort = new QuickSort();
 
-    printIntArr(quickArr);
-    qsort.corrInPlaceQuickSort(quickArr, 0, quickArr.length-1);
-    printIntArr(quickArr);
+    arr = makeRndArr(arrSize, 100, 50);
+    arrIncreasing = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    arrDecreasing = new int[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 
+    System.out.println("TESTING QUICKSORT");
+    System.out.println("UNSORTED: ");
+    printIntArr(arr);
+    printIntArr(arrIncreasing);
+    printIntArr(arrDecreasing);
+
+    System.out.println();
+    qsort.corrInPlaceQuickSort(arr, 0, arr.length-1);
+    System.out.println();
+    qsort.corrInPlaceQuickSort(arrIncreasing, 0, arrIncreasing.length-1);
+    System.out.println();
+    qsort.corrInPlaceQuickSort(arrDecreasing, 0, arrDecreasing.length-1);
+
+
+    System.out.println("\nQUICKSORTED:");
+    printIntArr(arr);
+    printIntArr(arrIncreasing);
+    printIntArr(arrDecreasing);
+    System.out.println();
 
   }
-
   public static int[] makeRndArr(int size, int seed, int range) {
     int[] arr = new int[size];
     Random r = new Random(seed);
@@ -60,10 +100,9 @@ public class Main {
     for (int i = 0; i < size; i++){
       arr[i] = r.nextInt(range);
     }
-
     return arr;
-  }
 
+  }
   public static void printIntArr(int[] arr) {
     String s = "[";
     for (int i = 0; i < arr.length - 1; i++) {
@@ -71,7 +110,16 @@ public class Main {
     }
 
     s += arr[arr.length-1] + "]";
+    System.out.println(s);
 
+  }
+  public static void printIntArrRange(int[] arr, int start, int end){
+    String s = "[";
+
+    for(int i = start; i < end; i++){
+      s += arr[i] + ", ";
+    }
+    s += arr[end] + "]";
     System.out.println(s);
   }
 }
