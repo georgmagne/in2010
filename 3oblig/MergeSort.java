@@ -1,14 +1,16 @@
 import java.util.Arrays;
 
-public class MergeSort {
+public class MergeSort implements Algorithm{
 
   public MergeSort(){
-
   }
 
+  public void sort(int[] arr){
+    mergesort(arr);
+  }
 
   public int[] mergesort(int[] arr) {
-      System.out.println(Arrays.toString(arr));
+      // System.out.println(Arrays.toString(arr));
       if (arr.length == 1){
         return arr;
       }

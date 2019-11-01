@@ -1,16 +1,16 @@
-public class InsertionSort {
+public class InsertionSort implements Algorithm{
 
   public InsertionSort() {
 
   }
 
-  public void sortIntArr(int[] arr) {
+  public void sort(int[] arr) {
 
     // Starting iteration at second elem in int array.
     for (int i = 1; i < arr.length; i++){
       int x = arr[i]; // elem
       int j = i;      // elem index
-      Main.printIntArr(arr);
+      // Main.printIntArr(arr);
 
       // index j > 1 and elem x < previous elem
       // While loop trough all previous elems
@@ -22,7 +22,7 @@ public class InsertionSort {
       // When while breaks arr[j-1] < x < arr[j+1]
       arr[j] = x;
     }
-    Main.printIntArr(arr);
+    // Main.printIntArr(arr);
     return;
   }
 }
